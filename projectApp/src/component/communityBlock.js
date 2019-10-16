@@ -51,7 +51,8 @@ class CommunityBlock extends React.Component {
 
   render() {
     return (
-      <View
+      <TouchableOpacity
+        onPress={this.props.onPress}
         style={{
           height: responsiveHeight(35),
           width: responsiveWidth(80),
@@ -67,7 +68,7 @@ class CommunityBlock extends React.Component {
           elevation: 21,
         }}>
         <Text>This is my block</Text>
-      </View>
+      </TouchableOpacity>
     );
   }
 }

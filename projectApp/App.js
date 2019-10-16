@@ -42,6 +42,7 @@ import {
 import MainScreen from './src/container/mainScreen';
 import CommunityScreen from './src/container/communityScreen';
 import CustomizerScreen from './src/container/customizerScreen';
+import CommunityDetailsScreen from './src/container/communityDetailsScreen';
 
 import DrawerContent from './src/component/drawerContent';
 
@@ -127,6 +128,13 @@ export default class App extends Component<Props> {
                 key="CustomizerScreen"
                 component={CustomizerScreen}
                 title="CustomizerScreen"
+                hideNavBar
+              />
+              <Scene
+                initial={false}
+                key="CommunityDetailsScreen"
+                component={CommunityDetailsScreen}
+                title="CommunityDetailsScreen"
                 hideNavBar
               />
             </Scene>
