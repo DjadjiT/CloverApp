@@ -83,6 +83,13 @@ class DrawerContent extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.button}
+          onPress={() => {
+            Actions.replace('CollectionScreen');
+          }}>
+          <Text style={styles.text}>Collection actuelle</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
           onPress={async () => {
             InAppBrowser.open('https://www.augarde.com');
           }}>

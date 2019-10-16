@@ -47,6 +47,7 @@ import CommunityDetailsScreen from './src/container/communityDetailsScreen';
 import AccountScreen from './src/container/accountScreen';
 import ShoppingCartScreen from './src/container/shoppingCartScreen';
 import QrCodeReaderScreen from './src/container/qrCodeReaderScreen';
+import CollectionScreen from './src/container/collectionScreen';
 
 import DrawerContent from './src/component/drawerContent';
 
@@ -68,7 +69,7 @@ export default class App extends Component<Props> {
             alignSelf: 'stretch',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            height: 45
+            height: 45,
           }}>
           <View
             key="header"
@@ -93,7 +94,7 @@ export default class App extends Component<Props> {
             key="header"
             style={{
               alignItems: 'center',
-              flexDirection: 'row'
+              flexDirection: 'row',
             }}>
             <Image
               source={require('./assets/burger.png')}
@@ -104,7 +105,7 @@ export default class App extends Component<Props> {
           <View
             key="header"
             style={{
-              flexDirection: 'row'
+              flexDirection: 'row',
             }}>
             <TouchableOpacity
               onPress={() => Actions.push('AccountScreen')}
@@ -198,6 +199,13 @@ export default class App extends Component<Props> {
                 key="QrCodeReaderScreen"
                 component={QrCodeReaderScreen}
                 title="QrCodeReaderScreen"
+                hideNavBar
+              />
+              <Scene
+                initial={false}
+                key="CollectionScreen"
+                component={CollectionScreen}
+                title="CollectionScreen"
                 hideNavBar
               />
             </Scene>
