@@ -34,6 +34,8 @@ import {
 //import SplashScreen from "./src/container/splash";
 
 import MainScreen from './src/container/mainScreen';
+import CommunityScreen from './src/container/communityScreen';
+import CustomizerScreen from './src/container/customizerScreen';
 
 import DrawerContent from './src/component/drawerContent';
 
@@ -82,6 +84,20 @@ export default class App extends Component<Props> {
                 key="MainScreen"
                 component={MainScreen}
                 title="MainScreen"
+                hideNavBar={false}
+              />
+              <Scene
+                initial={false}
+                key="CommunityScreen"
+                component={CommunityScreen}
+                title="CommunityScreen"
+                hideNavBar={false}
+              />
+              <Scene
+                initial={false}
+                key="CustomizerScreen"
+                component={CustomizerScreen}
+                title="CustomizerScreen"
                 hideNavBar={false}
               />
             </Scene>
