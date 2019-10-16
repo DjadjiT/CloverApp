@@ -52,27 +52,37 @@ class CollectionCarousel extends React.Component {
   }
 
   render() {
-    const {data, renderItem} = this.props;
+    const {data, renderItem, title} = this.props;
     return (
-      <Carousel
-        ref={c => {
-          this._carousel = c;
-        }}
-        layout={'default'}
-        data={data}
-        renderItem={renderItem}
-        sliderWidth={responsiveWidth(100)}
-        contentContainerStyle={{
-          justifyContent: 'center',
-        }}
-        containerCustomStyle={{
-          //marginHorizontal: responsiveWidth(-4),
-          flexGrow: 0,
-          //paddingVertical: 5,
-        }}
-        useScrollView={true}
-        itemWidth={responsiveWidth(84)}
-      />
+      <View>
+        <Text
+          style={{
+            fontSize: responsiveFontSize(3),
+            fontWeight: 'bold',
+            marginLeft: responsiveWidth(4),
+          }}>
+          {title}
+        </Text>
+        <Carousel
+          ref={c => {
+            this._carousel = c;
+          }}
+          layout={'default'}
+          data={data}
+          renderItem={renderItem}
+          sliderWidth={responsiveWidth(100)}
+          contentContainerStyle={{
+            justifyContent: 'center',
+          }}
+          containerCustomStyle={{
+            //marginHorizontal: responsiveWidth(-4),
+            flexGrow: 0,
+            //paddingVertical: 5,
+          }}
+          useScrollView={true}
+          itemWidth={responsiveWidth(84)}
+        />
+      </View>
     );
   }
 }

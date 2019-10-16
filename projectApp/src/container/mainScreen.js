@@ -60,7 +60,11 @@ export default class HomeScreen extends Component<Props> {
           </TouchableOpacity>
         </View>
         <View key="carousel">
-          <CollectionCarousel data={array} renderItem={this.renderItem} />
+          <CollectionCarousel
+            data={array}
+            title="Nouvelle Collection"
+            renderItem={this.renderItem}
+          />
         </View>
         <View>
           <Image
