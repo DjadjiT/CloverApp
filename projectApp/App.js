@@ -68,11 +68,11 @@ export default class App extends Component<Props> {
             alignSelf: 'stretch',
             flexDirection: 'row',
             justifyContent: 'space-between',
+            height: 45
           }}>
           <View
             key="header"
             style={{
-              alignItems: 'flex-start',
               flexDirection: 'row',
             }}>
             <TouchableOpacity
@@ -81,7 +81,7 @@ export default class App extends Component<Props> {
                 drawerOpen = !drawerOpen;
               }}
               hitSlop={{top: 40, bottom: 40, left: 50, right: 50}}
-              style={{alignSelf: 'flex-start'}}>
+              style={{alignSelf: 'center', marginHorizontal: 2}}>
               <Image
                 source={require('./assets/burger.png')}
                 resizeMode="contain"
@@ -93,7 +93,7 @@ export default class App extends Component<Props> {
             key="header"
             style={{
               alignItems: 'center',
-              flexDirection: 'row',
+              flexDirection: 'row'
             }}>
             <Image
               source={require('./assets/burger.png')}
@@ -104,13 +104,12 @@ export default class App extends Component<Props> {
           <View
             key="header"
             style={{
-              alignItems: 'flex-end',
-              flexDirection: 'row',
+              flexDirection: 'row'
             }}>
             <TouchableOpacity
               onPress={() => Actions.push('AccountScreen')}
               hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
-              style={{alignSelf: 'flex-end'}}>
+              style={{alignSelf: 'center', marginHorizontal: 2}}>
               <Image
                 source={require('./assets/user-regular.png')}
                 resizeMode="contain"
@@ -120,9 +119,9 @@ export default class App extends Component<Props> {
             <TouchableOpacity
               onPress={() => Actions.push('QrCodeReaderScreen')}
               hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
-              style={{alignSelf: 'flex-end'}}>
+              style={{alignSelf: 'center', marginHorizontal: 2}}>
               <Image
-                source={require('./assets/burger.png')}
+                source={require('./assets/qrCode.png')}
                 resizeMode="contain"
                 style={{height: 30, width: 30}}
               />
@@ -130,9 +129,9 @@ export default class App extends Component<Props> {
             <TouchableOpacity
               onPress={() => Actions.push('ShoppingCartScreen')}
               hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
-              style={{alignSelf: 'flex-end'}}>
+              style={{alignSelf: 'center', marginHorizontal: 2}}>
               <Image
-                source={require('./assets/burger.png')}
+                source={require('./assets/shoppingCart.png')}
                 resizeMode="contain"
                 style={{height: 30, width: 30}}
               />

@@ -28,7 +28,7 @@ import styles from '../styles/mainScreenStyle';
 
 type Props = {};
 
-export default class AcccountScreen extends Component<Props> {
+export default class AccountScreen extends Component<Props> {
     constructor(props) {
         super(props);
 

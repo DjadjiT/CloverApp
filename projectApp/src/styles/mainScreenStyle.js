@@ -7,7 +7,6 @@ import {
 
 const styles = StyleSheet.create({
   mainView: {
-    justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',
     backgroundColor: 'white',
@@ -16,6 +15,14 @@ const styles = StyleSheet.create({
   mainText: {
     color: 'blue',
   },
+  button : {
+    backgroundColor: '#383838',
+    padding: 10,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: 'bold'
+  }
 });
 
 module.exports = styles;
