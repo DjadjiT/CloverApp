@@ -15,6 +15,7 @@ import {
   TouchableOpacity,
   StatusBar,
   Button,
+  SafeAreaView,
 } from 'react-native';
 
 import {
@@ -67,12 +68,8 @@ export default class App extends Component<Props> {
 
   render() {
     return (
-      <View style={{flex: 1}}>
-        <StatusBar
-          animated
-          barStyle="light-content"
-          backgroundColor="#00B987"
-        />
+      <SafeAreaView style={{flex: 1}}>
+        <StatusBar animated backgroundColor="#00B987" />
         <View
           key="header"
           flexDirection="row"
@@ -140,7 +137,7 @@ export default class App extends Component<Props> {
             </Scene>
           </Drawer>
         </Router>
-      </View>
+      </SafeAreaView>
     );
   }
 }
