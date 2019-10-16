@@ -66,6 +66,13 @@ export default class App extends Component<Props> {
           barStyle="light-content"
           backgroundColor="#00B987"
         />
+        <TouchableOpacity onPress={() => Actions.drawerOpen()}>
+          <Image
+            source={require('./assets/burger.png')}
+            resizeMode="contain"
+            style={{height: 30, width: 30}}
+          />
+        </TouchableOpacity>
         <Router>
           <Drawer
             hideNavBar
@@ -84,21 +91,21 @@ export default class App extends Component<Props> {
                 key="MainScreen"
                 component={MainScreen}
                 title="MainScreen"
-                hideNavBar={false}
+                hideNavBar
               />
               <Scene
                 initial={false}
                 key="CommunityScreen"
                 component={CommunityScreen}
                 title="CommunityScreen"
-                hideNavBar={false}
+                hideNavBar
               />
               <Scene
                 initial={false}
                 key="CustomizerScreen"
                 component={CustomizerScreen}
                 title="CustomizerScreen"
-                hideNavBar={false}
+                hideNavBar
               />
             </Scene>
           </Drawer>
