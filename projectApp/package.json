@@ -13,6 +13,7 @@
     "react-native": "0.61.2",
     "react-native-responsive-dimensions": "^3.0.0",
     "react-native-router-flux": "^4.0.6",
+    "react-native-snap-carousel": "^3.8.2",
     "reactn": "^2.2.4"
   },
   "devDependencies": {

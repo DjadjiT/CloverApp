@@ -37,7 +37,9 @@ export default class HomeScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.mainView}>
-        <Text style={styles.mainText}>Welcome to CloverApp, by Augarde</Text>
+        <TouchableOpacity onPress={() => Actions.push('CustomizerScreen')}>
+          <Text style={styles.mainText}>Je veux créer ma montre !</Text>
+        </TouchableOpacity>
       </View>
     );
   }

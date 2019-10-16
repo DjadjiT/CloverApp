@@ -14,6 +14,7 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
+  ScrollView,
 } from 'react-native';
 
 import {Actions} from 'react-native-router-flux';
@@ -23,9 +24,13 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
+import CommunityBlock from '../component/communityBlock';
+
 import styles from '../styles/mainScreenStyle';
 
 type Props = {};
+
+const array = [1, 2, 3];
 
 export default class CommunityScreen extends Component<Props> {
   constructor(props) {
@@ -37,7 +42,13 @@ export default class CommunityScreen extends Component<Props> {
   render() {
     return (
       <View style={styles.mainView}>
-        <Text style={styles.mainText}>CommunityScreen</Text>
+        <ScrollView
+          style={{marginTop: responsiveHeight(5)}}
+          showsVerticalScrollIndicator={false}>
+          {array.map(index => {
+            return <CommunityBlock />;
+          })}
+        </ScrollView>
       </View>
     );
   }

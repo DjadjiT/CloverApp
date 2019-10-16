@@ -17,6 +17,7 @@ import {
 } from 'react-native';
 
 import {Actions} from 'react-native-router-flux';
+import Carousel from 'react-native-snap-carousel';
 import {
   responsiveHeight,
   responsiveWidth,

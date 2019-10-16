@@ -17,14 +17,28 @@ import {
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'transparent',
+    backgroundColor: 'purple',
     borderWidth: 2,
-    borderColor: 'red',
+    justifyContent: 'center',
+  },
+  text: {
+    fontSize: responsiveFontSize(3),
+    color: 'white',
+    marginVertical: responsiveHeight(5),
+  },
+  button: {
+    borderBottomColor: 'lightgrey',
+    borderBottomWidth: 2,
   },
 });
 
@@ -45,22 +59,25 @@ class DrawerContent extends React.Component {
         {/* <Text>Drawer Content</Text>
         <Button onPress={Actions.closeDrawer}>Back</Button> */}
         <TouchableOpacity
+          style={styles.button}
           onPress={() => {
             Actions.replace('MainScreen');
           }}>
-          <Text>Accueil</Text>
+          <Text style={styles.text}>Accueil</Text>
         </TouchableOpacity>
         <TouchableOpacity
+          style={styles.button}
           onPress={() => {
             Actions.replace('CustomizerScreen');
           }}>
-          <Text>Créer ma montre</Text>
+          <Text style={styles.text}>Créer ma montre</Text>
         </TouchableOpacity>
         <TouchableOpacity
+          style={styles.button}
           onPress={() => {
             Actions.replace('CommunityScreen');
           }}>
-          <Text>La tribu</Text>
+          <Text style={styles.text}>La tribu</Text>
         </TouchableOpacity>
       </View>
     );

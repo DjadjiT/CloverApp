@@ -31,6 +31,12 @@ import {
   Lightbox,
 } from 'react-native-router-flux';
 
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize,
+} from 'react-native-responsive-dimensions';
+
 //import SplashScreen from "./src/container/splash";
 
 import MainScreen from './src/container/mainScreen';
@@ -66,13 +72,29 @@ export default class App extends Component<Props> {
           barStyle="light-content"
           backgroundColor="#00B987"
         />
-        <TouchableOpacity onPress={() => Actions.drawerOpen()}>
-          <Image
-            source={require('./assets/burger.png')}
-            resizeMode="contain"
-            style={{height: 30, width: 30}}
-          />
-        </TouchableOpacity>
+        <View
+          key="header"
+          flexDirection="row"
+          style={{alignSelf: 'stretch', justifyContent: 'center'}}>
+          <TouchableOpacity
+            onPress={() => Actions.drawerOpen()}
+            hitSlop={{top: 40, bottom: 40, left: 50, right: 50}}>
+            <Image
+              source={require('./assets/burger.png')}
+              resizeMode="contain"
+              style={{height: 30, width: 30, alignSelf: 'flex-start'}}
+            />
+          </TouchableOpacity>
+          <Text
+            style={{
+              fontSize: responsiveFontSize(4),
+              color: 'blue',
+              fontWeight: 'bold',
+              alignSelf: 'center',
+            }}>
+            CloverApp
+          </Text>
+        </View>
         <Router>
           <Drawer
             hideNavBar
