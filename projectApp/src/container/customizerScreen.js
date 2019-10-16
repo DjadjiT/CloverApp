@@ -25,11 +25,18 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
+import SvgUri from 'react-native-svg-uri';
+
 import styles from '../styles/mainScreenStyle';
 
 type Props = {};
 
-const componentsArray = ['montre', 'bracelet', 'aiguilles'];
+const componentsArray = [
+  {title: 'boitier', image: require('../../assets/watch_case.png')},
+  {title: 'cadran', image: require('../../assets/watch_clock_dial.png')},
+  {title: 'aiguilles', image: require('../../assets/watch_hand.png')},
+  {title: 'bracelet', image: require('../../assets/watchband.png')},
+];
 
 export default class CustomizerScreen extends Component<Props> {
   constructor(props) {
@@ -37,12 +44,11 @@ export default class CustomizerScreen extends Component<Props> {
 
     this.state = {
       currentComponent: null,
-      componentsArray2: [],
       itemListView: null,
     };
   }
 
-  addList(item) {
+  addList(currentItem) {
     this.setState({
       itemListView: (
         <ScrollView
@@ -54,6 +60,7 @@ export default class CustomizerScreen extends Component<Props> {
           {componentsArray.map((item, index) => {
             return (
               <TouchableOpacity
+                key={index}
                 style={{
                   flex: 1,
                   borderWidth: 1,
@@ -68,18 +75,18 @@ export default class CustomizerScreen extends Component<Props> {
                   resizeMode="contain"
                   style={{height: 30, width: 30, alignSelf: 'center'}}
                 />
-                <Text style={{flex: 1, alignSelf: 'center'}}>{item}</Text>
+                <Text style={{flex: 1, alignSelf: 'center'}}>{item.title}</Text>
               </TouchableOpacity>
             );
           })}
         </ScrollView>
       ),
-      currentComponent: item,
+      currentComponent: currentItem,
     });
   }
 
   render() {
-    let {currentComponent, componentsArray2, itemListView} = this.state;
+    let {currentComponent, itemListView} = this.state;
 
     return (
       <View style={styles.mainView}>
@@ -100,23 +107,28 @@ export default class CustomizerScreen extends Component<Props> {
               flex: 1,
               justifyContent: 'center',
             }}>
-            {componentsArray.map((item, index) => (
-              <TouchableOpacity
-                style={{
-                  flex: 1,
-                  borderWidth: 1,
-                  borderColor: 'lightgrey',
-                  flexDirection: 'column',
-                }}
-                onPress={() => this.addList(item)}>
-                <Image
-                  source={require('../../assets/burger.png')}
-                  resizeMode="contain"
-                  style={{height: 30, width: 30, alignSelf: 'center'}}
-                />
-                <Text style={{flex: 1, alignSelf: 'center'}}>{item}</Text>
-              </TouchableOpacity>
-            ))}
+            {componentsArray.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={item.title}
+                  style={{
+                    flex: 1,
+                    borderWidth: 1,
+                    borderColor: 'lightgrey',
+                    flexDirection: 'column',
+                  }}
+                  onPress={() => this.addList(item)}>
+                  <Image
+                    source={item.image}
+                    resizeMode="contain"
+                    style={{height: 30, width: 30, alignSelf: 'center'}}
+                  />
+                  <Text style={{flex: 1, alignSelf: 'center'}}>
+                    {item.title}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
           </View>
         </View>
       </View>
