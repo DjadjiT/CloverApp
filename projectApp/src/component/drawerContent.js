@@ -23,6 +23,8 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
+import InAppBrowser from 'react-native-inappbrowser-reborn';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -78,6 +80,13 @@ class DrawerContent extends React.Component {
             Actions.replace('CommunityScreen');
           }}>
           <Text style={styles.text}>La tribu</Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={async () => {
+            InAppBrowser.open('https://www.augarde.com');
+          }}>
+          <Text style={styles.text}> Made by Augarde</Text>
         </TouchableOpacity>
       </View>
     );
