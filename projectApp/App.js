@@ -67,32 +67,31 @@ export default class App extends Component<Props> {
   }
 
   render() {
+    let drawerOpen = false;
     return (
       <SafeAreaView style={{flex: 1}}>
         <StatusBar animated backgroundColor="#00B987" />
         <View
           key="header"
           flexDirection="row"
-          style={{alignSelf: 'stretch', justifyContent: 'center'}}>
+          style={{
+            alignSelf: 'stretch',
+          }}>
           <TouchableOpacity
-            onPress={() => Actions.drawerOpen()}
-            hitSlop={{top: 40, bottom: 40, left: 50, right: 50}}>
+            onPress={() => {
+              drawerOpen ? Actions.drawerClose() : Actions.drawerOpen();
+              drawerOpen = !drawerOpen;
+            }}
+            hitSlop={{top: 40, bottom: 40, left: 50, right: 50}}
+            style={{alignSelf: 'flex-start'}}>
             <Image
               source={require('./assets/burger.png')}
               resizeMode="contain"
-              style={{height: 30, width: 30, alignSelf: 'flex-start'}}
+              style={{height: 30, width: 30}}
             />
           </TouchableOpacity>
-          <Text
-            style={{
-              fontSize: responsiveFontSize(4),
-              color: 'blue',
-              fontWeight: 'bold',
-              alignSelf: 'center',
-            }}>
-            CloverApp
-          </Text>
         </View>
+
         <Router>
           <Drawer
             hideNavBar
