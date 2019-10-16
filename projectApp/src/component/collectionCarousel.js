@@ -23,6 +23,8 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
+import Carousel from 'react-native-snap-carousel';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class CommunityBlock extends React.Component {
+class CollectionCarousel extends React.Component {
   constructor(props) {
     super(props);
 
@@ -50,27 +52,29 @@ class CommunityBlock extends React.Component {
   }
 
   render() {
+    const {data, renderItem} = this.props;
     return (
-      <TouchableOpacity
-        onPress={this.props.onPress}
-        style={{
-          height: responsiveHeight(20),
-          width: responsiveWidth(80),
-          marginVertical: responsiveHeight(3),
-          backgroundColor: 'red',
-          shadowColor: '#000',
-          shadowOffset: {
-            width: 0,
-            height: 10,
-          },
-          shadowOpacity: 0.53,
-          shadowRadius: 13.97,
-          elevation: 21,
-        }}>
-        <Text>This is my block</Text>
-      </TouchableOpacity>
+      <Carousel
+        ref={c => {
+          this._carousel = c;
+        }}
+        layout={'default'}
+        data={data}
+        renderItem={renderItem}
+        sliderWidth={responsiveWidth(100)}
+        contentContainerStyle={{
+          justifyContent: 'center',
+        }}
+        containerCustomStyle={{
+          //marginHorizontal: responsiveWidth(-4),
+          flexGrow: 0,
+          //paddingVertical: 5,
+        }}
+        useScrollView={true}
+        itemWidth={responsiveWidth(84)}
+      />
     );
   }
 }
 
-export default CommunityBlock;
+export default CollectionCarousel;
