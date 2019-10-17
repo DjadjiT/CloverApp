@@ -53,6 +53,7 @@ export default class CommunityScreen extends Component<Props> {
                     item_details: index,
                   })
                 }
+                source={require('../../assets/watches/lux7.jpg')}
                 title={'BLUE SAPHIRE LADIES WATCH'}
                 text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
                 'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
