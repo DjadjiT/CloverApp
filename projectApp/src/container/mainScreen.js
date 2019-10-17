@@ -41,11 +41,13 @@ export default class HomeScreen extends Component<Props> {
   }
 
   renderItem = ({item, index}) => {
-    return <CommunityBlock title={'BLUE SAPHIRE LADIES WATCH'}
-                           text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
-                           'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
-                           'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
-                           'glam.'}/>;
+    return <CommunityBlock
+      source={require('../../assets/watches/lux7.jpg')}
+      title={'BLUE SAPHIRE LADIES WATCH'}
+      text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
+      'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
+      'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
+      'glam.'}/>;
   };
 
   render() {
@@ -85,11 +87,19 @@ export default class HomeScreen extends Component<Props> {
             renderItem={this.renderItem}
           />
         </View>
-        <View style={{marginTop: 20}}>
+        <View style={{marginTop: 20, alignItems: 'center', justifyContent: 'center'}}>
           <Image
-            source={require('../../assets/bandeau.png')}
-            style={{height: 80, width: responsiveWidth(100)}}
+            source={require('../../assets/bandeau_event.jpg')}
+            style={{height: responsiveHeight(15), width: responsiveWidth(100)}}
           />
+          <View style={{position: 'absolute', alignItems: 'center'}}>
+            <Text
+              style={{color: 'white', fontSize: responsiveFontSize(3)}}>
+              Nouvelle collection</Text>
+            <Text
+              style={{color: 'white', fontSize: responsiveFontSize(3)}}>
+              J-16</Text>
+          </View>
         </View>
       </ScrollView>
     );

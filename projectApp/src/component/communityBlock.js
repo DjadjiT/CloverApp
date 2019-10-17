@@ -70,7 +70,7 @@ class CommunityBlock extends React.Component {
           alignItems: 'center'
         }}>
         <Image
-          source={require('../../assets/watches/lux7.jpg')}
+          source={this.props.source}
           style={{height: responsiveHeight(30), width: 100}}
         />
         <View>
