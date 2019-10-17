@@ -62,6 +62,11 @@ export default class App extends Component<Props> {
     this.state = {
       cartList: [],
     };
+
+    loginActions
+      .fetchCartList()
+      .then(cartList => this.setState({cartList: cartList}))
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -105,7 +110,9 @@ export default class App extends Component<Props> {
               resizeMode="contain"
               style={{height: 30, width: 30}}
             />
-            <Text style={{fontWeight: 'bold', fontSize: responsiveFontSize(3)}}>CloverApp</Text>
+            <Text style={{fontWeight: 'bold', fontSize: responsiveFontSize(3)}}>
+              CloverApp
+            </Text>
           </View>
           <View
             style={{

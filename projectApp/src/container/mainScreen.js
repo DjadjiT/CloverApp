@@ -14,7 +14,7 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 
 import {Actions} from 'react-native-router-flux';
@@ -41,11 +41,17 @@ export default class HomeScreen extends Component<Props> {
   }
 
   renderItem = ({item, index}) => {
-    return <CommunityBlock title={'BLUE SAPHIRE LADIES WATCH'}
-                           text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
-                           'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
-                           'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
-                           'glam.'}/>;
+    return (
+      <CommunityBlock
+        title={'BLUE SAPHIRE LADIES WATCH'}
+        text={
+          'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
+          'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
+          'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
+          'glam.'
+        }
+      />
+    );
   };
 
   render() {
@@ -54,13 +60,23 @@ export default class HomeScreen extends Component<Props> {
         <View style={{alignItems: 'center', justifyContent: 'center'}}>
           <Image
             source={require('../../assets/bandeau_dark.png')}
-            style={{height: 180, width: responsiveWidth(100), position: 'absolute', top: 0}}
+            style={{
+              height: responsiveHeight(30),
+              width: responsiveWidth(100),
+              position: 'absolute',
+              top: 0,
+            }}
           />
           <View style={{flexDirection: 'row'}}>
             <Image
               source={require('../../assets/logoclover.png')}
               resizeMode={'contain'}
-              style={{height: responsiveHeight(8), width: responsiveWidth(12), tintColor: 'white', marginTop: 10}}
+              style={{
+                height: responsiveHeight(8),
+                width: responsiveWidth(12),
+                tintColor: 'white',
+                marginTop: 10,
+              }}
             />
             <Text style={[styles.mainText, {marginTop: 20}]}>CloverApp</Text>
           </View>
@@ -68,10 +84,21 @@ export default class HomeScreen extends Component<Props> {
           <Image
             source={require('../../assets/Logo-Augarde-HD.png')}
             resizeMode={'contain'}
-            style={{height: responsiveHeight(10), width: responsiveWidth(30), tintColor: 'white', marginTop: 15}}
+            style={{
+              height: responsiveHeight(10),
+              width: responsiveWidth(30),
+              tintColor: 'white',
+              marginTop: 15,
+            }}
           />
         </View>
-        <View style={{flex: 1, justifyContent: 'center', alignItems: 'center', marginTop: 30}}>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: 30,
+          }}>
           <TouchableOpacity onPress={() => Actions.push('CustomizerScreen')}>
             <View style={styles.button}>
               <Text style={styles.buttonText}>Créer une montre</Text>
