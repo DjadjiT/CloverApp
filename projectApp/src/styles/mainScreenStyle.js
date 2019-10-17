@@ -7,21 +7,26 @@ import {
 
 const styles = StyleSheet.create({
   mainView: {
-    alignItems: 'center',
     flexDirection: 'column',
     backgroundColor: 'white',
     flex: 1,
   },
   mainText: {
-    color: 'blue',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: responsiveFontSize(4)
   },
   button : {
+    margin: 30,
+    alignItems: 'center',
     backgroundColor: '#383838',
     padding: 10,
+    borderRadius: 5
   },
   buttonText: {
     color: 'white',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: responsiveFontSize(2.5)
   }
 });
 

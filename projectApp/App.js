@@ -97,10 +97,11 @@ export default class App extends Component<Props> {
               flexDirection: 'row',
             }}>
             <Image
-              source={require('./assets/burger.png')}
+              source={require('./assets/logoclover.png')}
               resizeMode="contain"
               style={{height: 30, width: 30}}
             />
+            <Text style={{fontWeight: 'bold', fontSize: responsiveFontSize(3)}}>CloverApp</Text>
           </View>
           <View
             key="header"

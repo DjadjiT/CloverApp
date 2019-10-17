@@ -53,6 +53,11 @@ export default class CommunityScreen extends Component<Props> {
                     item_details: index,
                   })
                 }
+                title={'BLUE SAPHIRE LADIES WATCH'}
+                text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
+                'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
+                'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
+                'glam.'}
               />
             );
           })}
