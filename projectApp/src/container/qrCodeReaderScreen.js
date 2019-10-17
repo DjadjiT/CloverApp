@@ -30,8 +30,35 @@ import {
 } from 'react-native-responsive-dimensions';
 
 import styles from '../styles/mainScreenStyle';
+import { Clipboard } from 'react-native';
 
-type Props = {};
+type Props = {}
+
+const qr_json = {
+    "qr_link" : "https://www.augarde.com/produit/blue-saphire-ladies-watch/",
+    "code" : "ADEHEBY38382",
+    "position" :
+        {
+            "lat" : 48.8491986,
+            "lon" :	2.3895802
+        }
+};
+
+const promoCode = {
+    "promo" :[
+        {
+            "code" : "ADEHEBY38382",
+            "type" : "strap",
+            "value" : 20
+        },
+        {
+            "code" : "KJM1N8301OI2",
+            "type" : "watches",
+            "value" : 15
+        }
+    ]
+};
+
 
 export default class QrCodeReaderScreen extends Component<Props> {
 
@@ -41,13 +68,18 @@ export default class QrCodeReaderScreen extends Component<Props> {
         this.state = {
             cam_permission : false ,
             visible : false,
-            qr_value : ''};
+            qr_value : '',
+            promotion :{
+                code : '',
+                promoType : '',
+                value : 0
+            }};
 
     }
 
     async requestCameraPermission() {
         try {
-            const granted = await PermissionsAndroid.request(
+             const granted = await PermissionsAndroid.request(
                 PermissionsAndroid.PERMISSIONS.CAMERA,
                 {
                     title: 'Cool Photo App Camera Permission',
@@ -73,20 +105,63 @@ export default class QrCodeReaderScreen extends Component<Props> {
     }
 
     onBarcodeScan(qrvalue) {
-        //called after te successful scanning of QRCode/Barcode
         this.setState({ qr_value: qrvalue });
-        console.log("qr link :"+    qrvalue);
-        this.setState({ camOpen: true });
         this.setState({visible : true});
+        this.setState({ camOpen: true });
+        this.compareLink();
     }
 
     returnHomePage() {
-        this.setState({visible : false});
-
-        Actions.popTo("MainScreen");
+            this.setState({visible : false});
+            Actions.popTo("MainScreen");
     }
 
+    compareLink() {
+        console.log("start compare link");
+        let type = '';
+        let value = '';
 
+        let data = JSON.stringify(qr_json);
+        let promo_qr = JSON.stringify(promoCode);
+        let parse_qr = JSON.parse(data);
+        let parse_promo = JSON.parse(promo_qr);
+
+        if (parse_qr.qr_link === this.state.qr_value) {
+
+            for(let i = 0; i<parse_promo.promo.length; i++){
+                if(parse_qr.code === parse_promo.promo[i].code){
+                    console.log("qr code is equal to qr code from the promo list");
+                    switch (parse_promo.promo[i].type) {
+                        case 'watches' :
+                            this.state.promotion.promoType = "montres";
+                            break;
+                        case 'strap' :
+                            this.state.promotion.promoType = "bracelets";
+                            break;
+                        case 'custom_watches' :
+                            this.state.promotion.promoType = "montres personnalisée";
+                            break;
+                        case 'cases' :
+                            this.state.promotion.promoType = "boitiers";
+                            break;
+                        case 'dial' :
+                            this.state.promotion.promoType = "cadrans";
+                            break;
+                        default :
+                            console.warn("Promo type not specified");
+                    }
+                    this.state.promotion.value = parse_promo.promo[i].value;
+                    this.state.promotion.code = parse_qr.code;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+
+    copyToClipBoard = async () => {
+
+    };
 
     render() {
         if(!this.state.cam_permission) {
@@ -94,7 +169,7 @@ export default class QrCodeReaderScreen extends Component<Props> {
         }
         else if(this.state.cam_permission) {
             return(
-                <View style={{ flex: 1 }}>
+                <View style={{ flex: 1 }}>a
                     <CameraKitCameraScreen
                         showFrame={false}
                         //Show/hide scan frame
@@ -128,6 +203,18 @@ export default class QrCodeReaderScreen extends Component<Props> {
                             }
                         >
                             <DialogContent>
+                                <Text style = {
+                                    {padding : 10,
+                                    fontSize : 16}
+                                }> {"Vous avez gagné : -"+this.state.promotion.value+"% sur les "+this.state.promotion.promoType+
+                                " grâce au code : "}  </Text>
+                                <TouchableOpacity
+                                    style={styles.button}
+                                    onPress={() => {
+                                        this.copyToClipBoard();
+                                    }}>
+                                    <Text style={styles.promoCode}>{this.state.promotion.code}</Text>
+                                </TouchableOpacity>
                             </DialogContent>
                         </Dialog>
                     </View>

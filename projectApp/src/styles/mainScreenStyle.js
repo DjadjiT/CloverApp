@@ -22,6 +22,14 @@ const styles = StyleSheet.create({
   buttonText: {
     color: 'white',
     fontWeight: 'bold'
+  },
+  promoCode : {
+    color: '#000000',
+    fontWeight: 'bold',
+    padding: 10,
+    backgroundColor : '#FFFFFF',
+    textAlign : 'center',
+    fontSize : 20
   }
 });
 
