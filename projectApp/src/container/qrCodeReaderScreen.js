@@ -81,8 +81,12 @@ export default class QrCodeReaderScreen extends Component<Props> {
     }
 
     returnHomePage() {
+        this.setState({visible : false});
 
+        Actions.popTo("MainScreen");
     }
+
+
 
     render() {
         if(!this.state.cam_permission) {
@@ -106,9 +110,26 @@ export default class QrCodeReaderScreen extends Component<Props> {
                             this.onBarcodeScan(event.nativeEvent.codeStringValue)
                         }
                     />
-                    <View style={styles.container}>
 
-                        <Text> Qr scan here</Text>
+                    <View style={styles.container}>
+                        <Dialog
+                            visible={this.state.visible}
+                            dialogTitle={<DialogTitle title="Voici votre cadeau : " />}
+                            footer={
+                                <DialogFooter>
+                                    <DialogButton
+                                        text="Merci !"
+                                        onPress={() => {this.returnHomePage();
+                                            defaultAnimationDialog: false}
+                                        }
+                                    />
+
+                                </DialogFooter>
+                            }
+                        >
+                            <DialogContent>
+                            </DialogContent>
+                        </Dialog>
                     </View>
 
                 </View>
