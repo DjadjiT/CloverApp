@@ -24,7 +24,7 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
-import CommunityBlock from '../component/communityBlock';
+import MainScreenBlock from '../component/mainScreenBlock';
 import CollectionCarousel from '../component/collectionCarousel';
 
 import styles from '../styles/mainScreenStyle';
@@ -41,7 +41,7 @@ export default class HomeScreen extends Component<Props> {
   }
 
   renderItem = ({item, index}) => {
-    return <CommunityBlock
+    return <MainScreenBlock
       source={require('../../assets/watches/lux7.jpg')}
       title={'BLUE SAPHIRE LADIES WATCH'}
       text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
