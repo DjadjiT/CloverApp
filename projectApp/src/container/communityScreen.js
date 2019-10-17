@@ -26,19 +26,21 @@ import {
 
 import CommunityBlock from '../component/communityBlock';
 
-import styles from '../styles/mainScreenStyle';
+import styles from '../styles/communityScreenStyle';
+import commonStyles from '../sharedStyles/commonStyle';
 
 type Props = {};
 
 const array = [1, 2, 3];
 
 const card_info_json = {
-    "source":'../../assets/watches/lux7.jpg',
-    "title": 'BLUE SAPHIRE LADIES WATCH',
-    "text" : 'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
-                'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
-            'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
-            'glam.'
+  source: '../../assets/watches/lux7.jpg',
+  title: 'BLUE SAPHIRE LADIES WATCH',
+  text:
+    'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
+    'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
+    'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
+    'glam.',
 };
 
 export default class CommunityScreen extends Component<Props> {
@@ -50,13 +52,12 @@ export default class CommunityScreen extends Component<Props> {
 
   render() {
     return (
-      <View style = {styles.scrollViewStyle}>
-        <ScrollView
-          showsVerticalScrollIndicator={false}>
+      <View style={styles.scrollViewStyle}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {array.map(index => {
             return (
               <CommunityBlock
-                  style={styles.scrollViewStyle}
+                style={styles.scrollViewStyle}
                 onPress={() =>
                   Actions.push('CommunityDetailsScreen', {
                     item_details: index,
@@ -64,11 +65,13 @@ export default class CommunityScreen extends Component<Props> {
                 }
                 source={require('../../assets/watches/lux7.jpg')}
                 title={'BLUE SAPHIRE LADIES WATCH'}
-                text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
-                'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
-                'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
-                'glam.'}
-                  favorite = {true}
+                text={
+                  'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
+                  'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
+                  'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
+                  'glam.'
+                }
+                favorite={true}
               />
             );
           })}

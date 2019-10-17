@@ -25,6 +25,7 @@ import {
 } from 'react-native-responsive-dimensions';
 
 import styles from '../styles/accountScreenStyle';
+import commonStyles from '../sharedStyles/commonStyle';
 
 type Props = {};
 
@@ -37,12 +38,12 @@ export default class AccountScreen extends Component<Props> {
 
   render() {
     return (
-      <View style={styles.mainView}>
+      <View style={commonStyles.mainView}>
         <View style={styles.view}>
           <Image
             source={require('../../assets/bandeau_user.jpg')}
-            style={{height: responsiveHeight(17), width: responsiveWidth(100), position: 'absolute'}}
-            />
+            style={styles.image}
+          />
           <Text style={styles.userText}>Bonjour, Mégane</Text>
         </View>
         <View style={styles.view}>

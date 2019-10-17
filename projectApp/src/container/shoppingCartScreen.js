@@ -24,9 +24,11 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
+import * as loginActions from '../actions/loginActions';
+import * as ApiCall from '../actions/apiCall';
+
 import styles from '../styles/shoppingCartScreenStyle';
-import * as loginActions from "../actions/loginActions";
-import * as ApiCall from "../actions/apiCall";
+import commonStyles from '../sharedStyles/commonStyle';
 
 type Props = {};
 
@@ -39,7 +41,7 @@ export default class ShoppingCartScreen extends Component<Props> {
     loginActions
       .fetchCartList()
       .then(res => {
-        this.setState({cartList: res})
+        this.setState({cartList: res});
       })
       .catch(error => console.log(error));
   }
@@ -57,33 +59,39 @@ export default class ShoppingCartScreen extends Component<Props> {
     console.log(cartList);
 
     return (
-      <View style={styles.mainView}>
+      <View style={commonStyles.mainView}>
         {cartList.map(index => {
           return (
-            <View style={[styles.view, {flexDirection: 'row', justifyContent: 'space-around'}]}>
+            <View
+              style={[
+                styles.view,
+                {flexDirection: 'row', justifyContent: 'space-around'},
+              ]}>
               <Image
                 source={require('../../assets/watches/lux7.jpg')}
                 resizeMode={'contain'}
-                style={{height: responsiveHeight(10), width: responsiveWidth(10)}}
+                style={{
+                  height: responsiveHeight(10),
+                  width: responsiveWidth(10),
+                }}
               />
-              <Text style={[styles.text, {width: responsiveWidth(35)}]}>BLUE SAPHIRE LADIES WATCH</Text>
+              <Text style={[styles.text, {width: responsiveWidth(35)}]}>
+                BLUE SAPHIRE LADIES WATCH
+              </Text>
               <Text style={styles.text}>259 €</Text>
               <Text style={styles.text}>1</Text>
               <TouchableOpacity
                 onPress={() => {
-                  this.removeItem(index)
+                  this.removeItem(index);
                 }}
                 hitSlop={{top: 40, bottom: 40, left: 50, right: 50}}
                 style={{alignSelf: 'center', marginHorizontal: 2}}>
                 <Text style={styles.text}>Supprimer</Text>
               </TouchableOpacity>
             </View>
-          )
+          );
         })}
-
       </View>
     );
   }
-
-
 }

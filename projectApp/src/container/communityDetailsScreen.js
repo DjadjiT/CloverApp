@@ -27,7 +27,8 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
-import styles from '../styles/mainScreenStyle';
+import styles from '../styles/communityDetailsScreenStyle';
+import commonStyles from '../sharedStyles/commonStyle';
 
 type Props = {};
 
@@ -162,52 +163,23 @@ export default class CommunityDetailsScreen extends Component<Props> {
     };
 
     return (
-      <View style={styles.mainView}>
+      <View style={commonStyles.mainView}>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          style={{marginBottom: responsiveHeight(7)}}>
-          <View
-            style={{
-              alignSelf: 'center',
-              //height: responsiveHeight(50),
-              width: responsiveWidth(90),
-              marginVertical: responsiveHeight(3),
-              backgroundColor: 'white',
-              shadowColor: '#000',
-              shadowOffset: {
-                width: 0,
-                height: 10,
-              },
-              shadowOpacity: 0.53,
-              shadowRadius: 8,
-              elevation: 10,
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}>
+          style={styles.scrollView}>
+          <View style={styles.watchDetails}>
             <Image
               source={require('../../assets/watches/lux7.jpg')}
               resizeMode="contain"
-              style={{flex: 1, height: responsiveHeight(40)}}
+              style={styles.watchImage}
             />
             <View style={{flex: 1.5}}>
-              <View style={{flex: 2, justifyContent: 'flex-end'}}>
-                <Text
-                  style={{
-                    fontWeight: 'bold',
-                    fontSize: responsiveFontSize(3),
-                    marginVertical: responsiveHeight(5),
-                    width: responsiveWidth(80),
-                  }}>
-                  {watch.title}
-                </Text>
+              <View style={styles.watchDescription}>
+                <Text style={styles.title}>{watch.title}</Text>
                 <Text
                   numberOfLines={4}
                   ellipsizeMode="tail"
-                  style={{
-                    width: responsiveWidth(80),
-                    marginHorizontal: responsiveWidth(2),
-                    marginBottom: responsiveHeight(5),
-                  }}>
+                  style={styles.description}>
                   {watch.description}
                 </Text>
               </View>
@@ -220,80 +192,28 @@ export default class CommunityDetailsScreen extends Component<Props> {
               value={commentary}
               clearButtonMode="always"
               onChangeText={commentary => this.setState({commentary})}
-              containerStyle={{width: responsiveWidth(90), alignSelf: 'center'}}
+              containerStyle={styles.textField}
               multiline
             />
 
             <TouchableOpacity
-              style={{
-                alignSelf: 'flex-end',
-                marginRight: responsiveWidth(5),
-                backgroundColor: 'turquoise',
-                borderRadius: 10,
-                paddingVertical: responsiveHeight(1),
-                paddingHorizontal: responsiveWidth(3),
-              }}
+              style={styles.sendTouchable}
               onPress={() => {
                 this.sendCommentary();
               }}>
-              <Text
-                style={{
-                  color: 'white',
-                  fontSize: responsiveFontSize(2.3),
-                  fontWeight: 'bold',
-                }}>
-                Envoyer
-              </Text>
+              <Text style={styles.sendText}>{'Envoyer'}</Text>
             </TouchableOpacity>
 
             {commentaryList.map((item, index) => (
-              <View
-                key={index}
-                style={{
-                  backgroundColor: '#EEEEEE',
-                  elevation: 10,
-                  width: responsiveWidth(90),
-                  alignSelf: 'center',
-                  borderRadius: 10,
-                  marginTop: responsiveHeight(3),
-                  paddingVertical: responsiveHeight(1),
-                }}>
-                <Text
-                  style={{
-                    marginLeft: responsiveWidth(5),
-                    fontSize: responsiveFontSize(2.3),
-                    fontWeight: '500',
-                  }}>
-                  {item.author}
-                </Text>
-                <Text
-                  style={{
-                    marginLeft: responsiveWidth(5),
-                    fontSize: responsiveFontSize(2.3),
-                    fontWeight: '300',
-                  }}>
-                  {item.commentary}
-                </Text>
+              <View key={index} style={styles.commentaryListContainer}>
+                <Text style={styles.commentaryText}>{item.author}</Text>
+                <Text style={styles.commentaryText}>{item.commentary}</Text>
               </View>
             ))}
           </View>
         </ScrollView>
-        <TouchableOpacity
-          style={{
-            position: 'absolute',
-            bottom: 0,
-            backgroundColor: 'green',
-            width: responsiveWidth(100),
-          }}>
-          <Text
-            style={{
-              color: 'white',
-              fontSize: responsiveFontSize(4),
-              fontWeight: 'bold',
-              alignSelf: 'center',
-            }}>
-            Acheter
-          </Text>
+        <TouchableOpacity style={styles.addToCartTouchable}>
+          <Text style={styles.addToCartText}>Ajouter au panier</Text>
         </TouchableOpacity>
       </View>
     );
