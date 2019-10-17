@@ -36,6 +36,12 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
+  scrollViewStyle : {
+    flex : 1,
+    alignItems:'center'
+  },
+  communityCardStyle: {
+  },
 });
 
 module.exports = styles;
