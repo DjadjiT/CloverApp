@@ -21,6 +21,7 @@ import {
 } from 'react-native';
 
 import { CameraKitCameraScreen, } from 'react-native-camera-kit';
+import {WToast} from 'react-native-smart-tip'
 
 import {Actions} from 'react-native-router-flux';
 import {
@@ -117,7 +118,6 @@ export default class QrCodeReaderScreen extends Component<Props> {
     }
 
     compareLink() {
-        console.log("start compare link");
         let type = '';
         let value = '';
 
@@ -130,7 +130,6 @@ export default class QrCodeReaderScreen extends Component<Props> {
 
             for(let i = 0; i<parse_promo.promo.length; i++){
                 if(parse_qr.code === parse_promo.promo[i].code){
-                    console.log("qr code is equal to qr code from the promo list");
                     switch (parse_promo.promo[i].type) {
                         case 'watches' :
                             this.state.promotion.promoType = "montres";
@@ -160,8 +159,11 @@ export default class QrCodeReaderScreen extends Component<Props> {
     }
 
     copyToClipBoard = async () => {
-
+        Actions.popTo("MainScreen");
+        await Clipboard.setString(this.state.promotion.code);
+        WToast.show({data: 'Copier dans le presse-papier.'});
     };
+
 
     render() {
         if(!this.state.cam_permission) {
@@ -169,7 +171,7 @@ export default class QrCodeReaderScreen extends Component<Props> {
         }
         else if(this.state.cam_permission) {
             return(
-                <View style={{ flex: 1 }}>a
+                <View style={{ flex: 1 }}>
                     <CameraKitCameraScreen
                         showFrame={false}
                         //Show/hide scan frame
@@ -211,6 +213,7 @@ export default class QrCodeReaderScreen extends Component<Props> {
                                 <TouchableOpacity
                                     style={styles.button}
                                     onPress={() => {
+                                        this.setState({visible : false});
                                         this.copyToClipBoard();
                                     }}>
                                     <Text style={styles.promoCode}>{this.state.promotion.code}</Text>
