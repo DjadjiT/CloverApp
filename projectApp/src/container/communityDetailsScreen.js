@@ -15,7 +15,10 @@ import {
   TouchableOpacity,
   Dimensions,
   ScrollView,
+  TextInput,
 } from 'react-native';
+
+import {TextField} from 'react-native-material-textfield';
 
 import {Actions} from 'react-native-router-flux';
 import {
@@ -91,14 +94,66 @@ const componentDetailsArray = {
   ],
 };
 
+let falseCommentaryList = [
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+];
+
 export default class CommunityDetailsScreen extends Component<Props> {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      commentary: '',
+      commentaryList: falseCommentaryList,
+    };
+  }
+
+  sendCommentary() {
+    let {commentary, commentaryList} = this.state;
+    if (commentary) {
+      commentaryList.unshift({author: 'John Doe', commentary: commentary});
+      this.setState({commentary: '', commentaryList: commentaryList});
+    }
   }
 
   render() {
+    let {commentary, commentaryList} = this.state;
+
     const watch = {
       title: 'Incroyable montre de luxe super stylée par la team 7',
       description:
@@ -108,7 +163,9 @@ export default class CommunityDetailsScreen extends Component<Props> {
 
     return (
       <View style={styles.mainView}>
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{marginBottom: responsiveHeight(7)}}>
           <View
             style={{
               alignSelf: 'center',
@@ -156,7 +213,88 @@ export default class CommunityDetailsScreen extends Component<Props> {
               </View>
             </View>
           </View>
+
+          <View>
+            <TextField
+              label="Lache ton com'"
+              value={commentary}
+              clearButtonMode="always"
+              onChangeText={commentary => this.setState({commentary})}
+              containerStyle={{width: responsiveWidth(90), alignSelf: 'center'}}
+              multiline
+            />
+
+            <TouchableOpacity
+              style={{
+                alignSelf: 'flex-end',
+                marginRight: responsiveWidth(5),
+                backgroundColor: 'turquoise',
+                borderRadius: 10,
+                paddingVertical: responsiveHeight(1),
+                paddingHorizontal: responsiveWidth(3),
+              }}
+              onPress={() => {
+                this.sendCommentary();
+              }}>
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: responsiveFontSize(2.3),
+                  fontWeight: 'bold',
+                }}>
+                Envoyer
+              </Text>
+            </TouchableOpacity>
+
+            {commentaryList.map((item, index) => (
+              <View
+                key={index}
+                style={{
+                  backgroundColor: '#EEEEEE',
+                  elevation: 10,
+                  width: responsiveWidth(90),
+                  alignSelf: 'center',
+                  borderRadius: 10,
+                  marginTop: responsiveHeight(3),
+                  paddingVertical: responsiveHeight(1),
+                }}>
+                <Text
+                  style={{
+                    marginLeft: responsiveWidth(5),
+                    fontSize: responsiveFontSize(2.3),
+                    fontWeight: '500',
+                  }}>
+                  {item.author}
+                </Text>
+                <Text
+                  style={{
+                    marginLeft: responsiveWidth(5),
+                    fontSize: responsiveFontSize(2.3),
+                    fontWeight: '300',
+                  }}>
+                  {item.commentary}
+                </Text>
+              </View>
+            ))}
+          </View>
         </ScrollView>
+        <TouchableOpacity
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            backgroundColor: 'green',
+            width: responsiveWidth(100),
+          }}>
+          <Text
+            style={{
+              color: 'white',
+              fontSize: responsiveFontSize(4),
+              fontWeight: 'bold',
+              alignSelf: 'center',
+            }}>
+            Acheter
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
