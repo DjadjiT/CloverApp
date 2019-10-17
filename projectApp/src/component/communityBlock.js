@@ -13,7 +13,8 @@ import {
   Text,
   View,
   ViewPropTypes,
-  TouchableOpacity, Image,
+  TouchableOpacity,
+  Image,
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
@@ -67,20 +68,40 @@ class CommunityBlock extends React.Component {
           shadowRadius: 8,
           elevation: 10,
           flexDirection: 'row',
-          alignItems: 'center'
+          alignItems: 'center',
         }}>
         <Image
-          source={this.props.source}
-          style={{height: responsiveHeight(30), width: 100}}
+          source={require('../../assets/watches/lux7.jpg')}
+          resizeMode="contain"
+          style={{flex: 1, height: responsiveHeight(30)}}
         />
-        <View>
+        <View style={{flex: 1.5}}>
           <View style={{flex: 2, justifyContent: 'flex-end'}}>
-            <Text style={{fontWeight: 'bold', marginVertical: 5}}>{this.props.title}</Text>
-            <Text numberOfLines={4} ellipsizeMode='tail'
-                  style={{width: responsiveWidth(45), marginHorizontal: responsiveWidth(2)}}>{this.props.text}</Text>
+            <Text
+              style={{fontWeight: 'bold', marginVertical: 5}}
+              numberOfLines={1}>
+              {this.props.title}
+            </Text>
+            <Text
+              numberOfLines={4}
+              ellipsizeMode="tail"
+              style={{
+                width: responsiveWidth(45),
+                marginHorizontal: responsiveWidth(2),
+              }}>
+              {this.props.text}
+            </Text>
           </View>
           <View style={{flex: 1, justifyContent: 'flex-end'}}>
-            <Text style={{color: 'lightgrey', marginBottom: responsiveHeight(2), marginLeft: responsiveWidth(30)}}>Voir plus >></Text>
+            <Text
+              style={{
+                color: 'lightgrey',
+                marginBottom: responsiveHeight(2),
+                alignSelf: 'flex-end',
+                marginRight: responsiveWidth(5),
+              }}>
+              Voir plus >>
+            </Text>
           </View>
         </View>
       </TouchableOpacity>

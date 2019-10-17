@@ -1,6 +1,8 @@
 import {Platform, Linking} from 'react-native';
 import NetInfo from 'react-native-netinfo';
 
+import AsyncStorage from '@react-native-community/async-storage';
+
 export async function goToCommunity() {
   // await callfunction then
   Actions.replace('communityScreen');
@@ -43,6 +45,21 @@ export async function makeGetCall(url) {
 
 export async function share(watchList) {
   return new Promise(function(resolve, reject) {
-    resolve(true);
+    AsyncStorage.getItem('cartList')
+      .then(cartList => {
+        if (!cartList) {
+          cartList = [];
+        } else {
+          cartList = JSON.parse(cartList);
+        }
+        cartList.push(watchList);
+
+        AsyncStorage.setItem('cartList', JSON.stringify(cartList))
+          .then(() => {
+            resolve(true);
+          })
+          .catch(error => reject(error));
+      })
+      .catch(error => reject(error));
   });
 }
