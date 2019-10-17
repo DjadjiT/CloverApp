@@ -37,7 +37,7 @@ export default class AccountScreen extends Component<Props> {
 
   render() {
     return (
-      <View style={[styles.mainView, {alignItems: 'center'}]}>
+      <View style={styles.mainView}>
         <View style={styles.view}>
           <Image
             source={require('../../assets/bandeau_user.jpg')}

@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   text: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: responsiveFontSize(2.5)
+    fontSize: responsiveFontSize(2)
   },
   userText: {
     color: 'white',

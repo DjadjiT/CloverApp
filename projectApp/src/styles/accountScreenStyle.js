@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     flex: 1,
+    alignItems: 'center'
   },
   view: {
     width: responsiveWidth(100),
