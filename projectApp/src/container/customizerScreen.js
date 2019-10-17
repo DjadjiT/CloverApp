@@ -62,8 +62,10 @@ export default class CustomizerScreen extends Component<Props> {
             return (
               <TouchableOpacity
                 key={index}
+                activeOpacity={0.7}
                 style={{
                   flex: 1,
+                  backgroundColor: 'white',
                   borderWidth: 1,
                   borderColor: 'lightgrey',
                   flexDirection: 'column',
