@@ -24,7 +24,7 @@ export async function goToUserAccount() {
 }
 
 export async function makeGetCall(url) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     try {
       let response = fetch(url, {
         method: 'GET',
@@ -44,7 +44,7 @@ export async function makeGetCall(url) {
 }
 
 export async function share(watchList) {
-  return new Promise(function(resolve, reject) {
+  return new Promise(function (resolve, reject) {
     AsyncStorage.getItem('cartList')
       .then(cartList => {
         if (!cartList) {
@@ -62,4 +62,9 @@ export async function share(watchList) {
       })
       .catch(error => reject(error));
   });
+}
+
+export async function removeFromCartList(cartList) {
+  AsyncStorage.setItem('cartList', JSON.stringify(cartList))
+
 }

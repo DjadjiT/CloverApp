@@ -51,7 +51,7 @@ import CollectionScreen from './src/container/collectionScreen';
 
 import DrawerContent from './src/component/drawerContent';
 
-//import * as loginActions from './src/actions/loginActions';
+import * as loginActions from './src/actions/loginActions';
 
 type Props = {};
 
@@ -73,7 +73,7 @@ export default class App extends Component<Props> {
     let drawerOpen = false;
     return (
       <SafeAreaView style={{flex: 1}}>
-        <StatusBar animated backgroundColor='white' barStyle='dark-content'/>
+        <StatusBar animated backgroundColor="white" barStyle="dark-content" />
         <View
           key="header"
           style={{

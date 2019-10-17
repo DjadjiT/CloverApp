@@ -10,20 +10,17 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     backgroundColor: 'white',
     flex: 1,
-    alignItems: 'center'
   },
   view: {
     width: responsiveWidth(100),
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
     borderStyle: 'solid',
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
   },
   text: {
     color: 'black',
     fontWeight: 'bold',
-    fontSize: responsiveFontSize(2.5)
+    fontSize: responsiveFontSize(2)
   },
   userText: {
     color: 'white',

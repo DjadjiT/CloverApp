@@ -109,9 +109,18 @@ export default class CustomizerScreen extends Component<Props> {
       currentComponent: null,
       itemListView: null,
       watchList: {
-        cadran: require('../../assets/watches/cadre_0.png'),
-        bracelet: require('../../assets/watches/bracelet_cuir.png'),
-        boitier: require('../../assets/watches/boitier_A.png'),
+        cadran: {
+          id: 1,
+          source: require('../../assets/watches/cadre_0.png'),
+        },
+        bracelet: {
+          id: 1,
+          source: require('../../assets/watches/bracelet_cuir.png'),
+        },
+        boitier: {
+          id: 1,
+          source: require('../../assets/watches/boitier_A.png'),
+        },
       },
     };
   }
@@ -145,7 +154,8 @@ export default class CustomizerScreen extends Component<Props> {
                   }}
                   onPress={() => {
                     let watchList = this.state.watchList;
-                    watchList[currentItem.title] = item.image;
+                    watchList[currentItem.title].source = item.image;
+                    watchList[currentItem.title].id = item.id;
                     this.setState({watchList: watchList});
                   }}>
                   <Image
@@ -231,7 +241,7 @@ export default class CustomizerScreen extends Component<Props> {
         </View>
         <View>
           <Image
-            source={watchList.bracelet}
+            source={watchList.bracelet.source}
             resizeMode="contain"
             style={{
               height: 650,
@@ -242,7 +252,7 @@ export default class CustomizerScreen extends Component<Props> {
             }}
           />
           <Image
-            source={watchList.cadran}
+            source={watchList.cadran.source}
             resizeMode="contain"
             style={{
               height: 100,
@@ -253,7 +263,7 @@ export default class CustomizerScreen extends Component<Props> {
             }}
           />
           <Image
-            source={watchList.boitier}
+            source={watchList.boitier.source}
             resizeMode="contain"
             style={{
               height: 150,
