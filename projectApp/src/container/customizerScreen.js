@@ -38,6 +38,69 @@ const componentsArray = [
   {title: 'bracelet', image: require('../../assets/watchband.png')},
 ];
 
+const componentDetailsArray = {
+  boitier: [
+    {
+      id: 1,
+      title: 'titre 1',
+      type: 'boitier',
+      image: require('../../assets/watches/boitier_A.png'),
+    },
+    {
+      id: 2,
+      title: 'titre 2',
+      type: 'boitier',
+      image: require('../../assets/watches/boitier_B.png'),
+    },
+    {
+      id: 3,
+      title: 'titre 3',
+      type: 'boitier',
+      image: require('../../assets/watches/boitier_C.png'),
+    },
+  ],
+  cadran: [
+    {
+      id: 1,
+      title: 'titre A',
+      type: 'cadran',
+      image: require('../../assets/watches/cadre_0.png'),
+    },
+    {
+      id: 2,
+      title: 'titre B',
+      type: 'cadran',
+      image: require('../../assets/watches/cadre_1.png'),
+    },
+    {
+      id: 3,
+      title: 'titre C',
+      type: 'cadran',
+      image: require('../../assets/watches/cadre_2.png'),
+    },
+    {
+      id: 4,
+      title: 'titre D',
+      type: 'cadran',
+      image: require('../../assets/watches/cadre_3.png'),
+    },
+  ],
+  bracelet: [
+    {
+      id: 1,
+      title: 'titre alpha',
+      type: 'bracelet',
+      image: require('../../assets/watches/bracelet_cuir.png'),
+    },
+    {
+      id: 2,
+      title: ' titre omega',
+      type: 'bracelet',
+      image: require('../../assets/watches/bracelet_cuir_fin_rouge.png'),
+    },
+  ],
+};
+
 export default class CustomizerScreen extends Component<Props> {
   constructor(props) {
     super(props);
@@ -45,47 +108,61 @@ export default class CustomizerScreen extends Component<Props> {
     this.state = {
       currentComponent: null,
       itemListView: null,
-      watchList: {},
+      watchList: {
+        cadran: require('../../assets/watches/cadre_0.png'),
+        bracelet: require('../../assets/watches/bracelet_cuir.png'),
+        boitier: require('../../assets/watches/boitier_A.png'),
+      },
     };
   }
 
   addList(currentItem) {
-    this.setState({
-      itemListView: (
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          style={{
-            flex: 1,
-          }}>
-          {componentsArray.map((item, index) => {
-            return (
-              <TouchableOpacity
-                key={index}
-                activeOpacity={0.7}
-                style={{
-                  flex: 1,
-                  backgroundColor: 'white',
-                  borderWidth: 1,
-                  borderColor: 'lightgrey',
-                  flexDirection: 'column',
-                  paddingHorizontal: responsiveWidth(
-                    componentsArray.length >= 5 ? 5 : 12,
-                  ),
-                }}>
-                <Image
-                  source={require('../../assets/burger.png')}
-                  resizeMode="contain"
-                  style={{height: 30, width: 30, alignSelf: 'center'}}
-                />
-                <Text style={{flex: 1, alignSelf: 'center'}}>{item.title}</Text>
-              </TouchableOpacity>
-            );
-          })}
-        </ScrollView>
-      ),
-      currentComponent: currentItem,
-    });
+    let chosenArray = componentDetailsArray[currentItem.title];
+
+    chosenArray &&
+      this.setState({
+        itemListView: (
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={{
+              flex: 1,
+            }}>
+            {chosenArray.map((item, index) => {
+              return (
+                <TouchableOpacity
+                  key={index}
+                  activeOpacity={0.7}
+                  style={{
+                    flex: 1,
+                    backgroundColor: 'white',
+                    borderWidth: 1,
+                    borderColor: 'lightgrey',
+                    flexDirection: 'column',
+                    paddingHorizontal: responsiveWidth(
+                      componentsArray.length >= 5 ? 5 : 12,
+                    ),
+                  }}
+                  onPress={() => {
+                    let watchList = this.state.watchList;
+                    watchList[currentItem.title] = item.image;
+                    this.setState({watchList: watchList});
+                  }}>
+                  <Image
+                    source={item.image}
+                    resizeMode="contain"
+                    style={{height: 30, width: 30, alignSelf: 'center'}}
+                  />
+                  <Text style={{flex: 1, alignSelf: 'center'}}>
+                    {item.title}
+                  </Text>
+                </TouchableOpacity>
+              );
+            })}
+          </ScrollView>
+        ),
+        currentComponent: currentItem,
+      });
   }
 
   render() {
@@ -154,7 +231,7 @@ export default class CustomizerScreen extends Component<Props> {
         </View>
         <View>
           <Image
-            source={require('../../assets/watches/bracelet_cuir.png')}
+            source={watchList.bracelet}
             resizeMode="contain"
             style={{
               height: 650,
@@ -165,7 +242,7 @@ export default class CustomizerScreen extends Component<Props> {
             }}
           />
           <Image
-            source={require('../../assets/watches/cadre_0.png')}
+            source={watchList.cadran}
             resizeMode="contain"
             style={{
               height: 100,
@@ -176,7 +253,7 @@ export default class CustomizerScreen extends Component<Props> {
             }}
           />
           <Image
-            source={require('../../assets/watches/boitier_A.png')}
+            source={watchList.boitier}
             resizeMode="contain"
             style={{
               height: 150,
