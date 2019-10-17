@@ -7,30 +7,35 @@ import {
 
 const styles = StyleSheet.create({
   mainView: {
-    alignItems: 'center',
     flexDirection: 'column',
     backgroundColor: 'white',
     flex: 1,
   },
   mainText: {
-    color: 'blue',
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: responsiveFontSize(4),
   },
-  button : {
+  button: {
+    margin: 30,
+    alignItems: 'center',
     backgroundColor: '#383838',
     padding: 10,
+    borderRadius: 5,
   },
   buttonText: {
     color: 'white',
-    fontWeight: 'bold'
+    fontSize: responsiveFontSize(2.5),
+    fontWeight: 'bold',
   },
-  promoCode : {
+  promoCode: {
     color: '#000000',
     fontWeight: 'bold',
     padding: 10,
-    backgroundColor : '#FFFFFF',
-    textAlign : 'center',
-    fontSize : 20
-  }
+    backgroundColor: '#FFFFFF',
+    textAlign: 'center',
+    fontSize: 20,
+  },
 });
 
 module.exports = styles;

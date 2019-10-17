@@ -51,11 +51,22 @@ import CollectionScreen from './src/container/collectionScreen';
 
 import DrawerContent from './src/component/drawerContent';
 
+import * as loginActions from './src/actions/loginActions';
+
 type Props = {};
 
 export default class App extends Component<Props> {
   constructor(props) {
     super(props);
+
+    this.state = {
+      cartList: [],
+    };
+
+    loginActions
+      .fetchCartList()
+      .then(cartList => this.setState({cartList: cartList}))
+      .catch(error => console.log(error));
   }
 
   render() {
@@ -72,7 +83,6 @@ export default class App extends Component<Props> {
             height: 45,
           }}>
           <View
-            key="header"
             style={{
               flexDirection: 'row',
             }}>
@@ -91,19 +101,20 @@ export default class App extends Component<Props> {
             </TouchableOpacity>
           </View>
           <View
-            key="header"
             style={{
               alignItems: 'center',
               flexDirection: 'row',
             }}>
             <Image
-              source={require('./assets/burger.png')}
+              source={require('./assets/logoclover.png')}
               resizeMode="contain"
               style={{height: 30, width: 30}}
             />
+            <Text style={{fontWeight: 'bold', fontSize: responsiveFontSize(3)}}>
+              CloverApp
+            </Text>
           </View>
           <View
-            key="header"
             style={{
               flexDirection: 'row',
             }}>
@@ -134,7 +145,10 @@ export default class App extends Component<Props> {
               <Image
                 source={require('./assets/shoppingCart.png')}
                 resizeMode="contain"
-                style={{height: 30, width: 30}}
+                style={[
+                  {height: 30, width: 30},
+                  this.state.cartList.length > 0 && {tintColor: 'blue'},
+                ]}
               />
             </TouchableOpacity>
           </View>
