@@ -151,7 +151,7 @@ export default class CustomizerScreen extends Component<Props> {
                   style={[
                     {
                       paddingHorizontal: responsiveWidth(
-                        componentsArray.length >= 5 ? 5 : 12,
+                        componentsArray.length >= 3 ? 8 : 12,
                       ),
                     },
                     styles.bottomSecondActionsTouchable,
