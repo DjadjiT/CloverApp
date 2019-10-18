@@ -91,6 +91,24 @@ export default class ShoppingCartScreen extends Component<Props> {
             </View>
           );
         })}
+        <TouchableOpacity
+          style={{
+            position: 'absolute',
+            bottom: 0,
+            backgroundColor: 'green',
+            width: responsiveWidth(100),
+            alignItems: 'center',
+          }}>
+          <Text
+            style={{
+              fontWeight: '500',
+              fontSize: responsiveFontSize(2.5),
+              color: 'white',
+              marginVertical: responsiveHeight(2),
+            }}>
+            Passer la commande
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
