@@ -15,6 +15,7 @@
     "react-native-async-storage": "0.0.1",
     "react-native-camera-kit": "^8.0.1",
     "react-native-inappbrowser-reborn": "^3.1.0",
+    "react-native-material-textfield": "^0.15.0",
     "react-native-netinfo": "^1.1.0",
     "react-native-popup-dialog": "^0.18.3",
     "react-native-responsive-dimensions": "^3.0.0",

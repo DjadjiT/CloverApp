@@ -28,11 +28,208 @@ import CollectionCarousel from '../component/collectionCarousel';
 import CommunityBlock from '../component/communityBlock';
 
 import styles from '../styles/mainScreenStyle';
-import MainScreenBlock from "../component/mainScreenBlock";
 
 type Props = {};
 
-const array = ["La collection d'hiver", 'Chic et choc', 'Collection Team 7'];
+const array = [
+  {
+    name: "La collection d'hiver",
+    watchList: [
+      {
+        title: 'BLUE SAPHIRE LADIES WATCH',
+        desc:
+          'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\nTake your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark glam.',
+        image: require('../../assets/watches/lux7.jpg'),
+        commentaryList: [
+          {
+            author: 'Marc',
+            comm: "Très belle montre, j'adore",
+          },
+          {
+            author: 'Lukas',
+            comm: 'Très jolie couleur',
+          },
+          {
+            author: 'Jonathan',
+            comm: 'Parfaite pour offrir à sa moitié',
+          },
+          {
+            author: 'Manon',
+            comm: 'Très agréable à porter, jolie finition, je la recommande !',
+          },
+        ],
+      },
+      {
+        title: 'BLACK NIGHT GENTLEMEN WATCH',
+        desc:
+          'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.',
+        image: require('../../assets/watches/lux6.jpg'),
+        commentaryList: [
+          {
+            author: 'Djadji',
+            comm: 'Montre de qualité',
+          },
+          {
+            author: 'John',
+            comm:
+              'Belle montre, les matériaux sont de qualité et la finition est parfaite.',
+          },
+        ],
+      },
+      {
+        title: "DESIGNER BLACK CHROME WATCH",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux5.jpg'),
+        commentaryList: [
+          {
+            author: 'Mégane',
+            comm: 'Les détails sont vraiment travaillés',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: 'Elégance',
+    watchList: [
+      {
+        title: "BLACK RED SHADOW LINX",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux8.jpg'),
+        commentaryList: [
+          {
+            author:"Djadji",
+            comm:"Montre de qualité"
+          },
+          {
+            author:"John",
+            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
+          }
+        ]
+      },
+      {
+        title: "BLACK NIGHT GENTLEMEN WATCH",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux6.jpg'),
+        commentaryList: [
+          {
+            author: 'Djadji',
+            comm: 'Montre de qualité',
+          },
+          {
+            author: 'John',
+            comm:
+              'Belle montre, les matériaux sont de qualité et la finition est parfaite.',
+          },
+        ],
+      },
+      {
+        title: 'BLUE SAPHIRE LADIES WATCH',
+        desc:
+          'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\nTake your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark glam.',
+        image: require('../../assets/watches/lux7.jpg'),
+        commentaryList: [
+          {
+            author: 'Marc',
+            comm: "Très belle montre, j'adore",
+          },
+          {
+            author: 'Lukas',
+            comm: 'Très jolie couleur',
+          },
+          {
+            author: 'Jonathan',
+            comm: 'Parfaite pour offrir à sa moitié',
+          },
+          {
+            author: 'Manon',
+            comm: 'Très agréable à porter, jolie finition, je la recommande !',
+          },
+        ],
+      },
+      {
+        title: "DESIGNER BLACK CHROME WATCH",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux5.jpg'),
+        commentaryList: [
+          {
+            author:"Mégane",
+            comm:"Les détails sont vraiment travaillés"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "La collection Team 7",
+    watchList: [
+      {
+        title: "DESIGNER BLACK CHROME WATCH",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux5.jpg'),
+        commentaryList: [
+          {
+            author:"Mégane",
+            comm:"Les détails sont vraiment travaillés"
+          }
+        ]
+      },
+      {
+        title: "BLACK RED SHADOW LINX",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux8.jpg'),
+        commentaryList: [
+          {
+            author:"Djadji",
+            comm:"Montre de qualité"
+          },
+          {
+            author:"John",
+            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
+          }
+        ]
+      },
+      {
+        title: "BLACK NIGHT GENTLEMEN WATCH",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux6.jpg'),
+        commentaryList: [
+          {
+            author:"Djadji",
+            comm:"Montre de qualité"
+          },
+          {
+            author:"John",
+            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
+          }
+        ]
+      },
+      {
+        title: "BLUE SAPHIRE LADIES WATCH",
+        desc: "Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\nTake your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark glam.",
+        image: require('../../assets/watches/lux7.jpg'),
+        commentaryList: [
+          {
+            author:"Marc",
+            comm:"Très belle montre, j'adore"
+          },
+          {
+            author:"Lukas",
+            comm:"Très jolie couleur"
+          },
+          {
+            author:"Jonathan",
+            comm:"Parfaite pour offrir à sa moitié"
+          },
+          {
+            author:"Manon",
+            comm:"Très agréable à porter, jolie finition, je la recommande !"
+          }
+        ]
+      }
+    ]
+  }
+]
 
 export default class CollectionScreen extends Component<Props> {
   constructor(props) {
@@ -42,7 +239,7 @@ export default class CollectionScreen extends Component<Props> {
   }
 
   renderItem = ({item, index}) => {
-    return <MainScreenBlock
+    return <CommunityBlock
       source={require('../../assets/watches/lux7.jpg')}
       title={'BLUE SAPHIRE LADIES WATCH'}
       text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
@@ -54,16 +251,16 @@ export default class CollectionScreen extends Component<Props> {
 
   render() {
     return (
-      <View style={styles.mainView}>
+      <View style={commonStyles.mainView}>
         <ScrollView
-          style={{marginTop: responsiveHeight(5)}}
+          style={styles.scrollView}
           showsVerticalScrollIndicator={false}>
-          {array.map((item, index) => {
+          {array.map((collectionObject, index) => {
             return (
               <View key={'carousel' + index}>
                 <CollectionCarousel
-                  data={array}
-                  title={item}
+                  data={collectionObject.watchList}
+                  title={collectionObject.name}
                   renderItem={this.renderItem}
                 />
               </View>

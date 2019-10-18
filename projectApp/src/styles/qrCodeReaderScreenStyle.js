@@ -14,11 +14,6 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderBottomWidth: 1,
   },
-  image: {
-    height: responsiveHeight(17),
-    width: responsiveWidth(100),
-    position: 'absolute',
-  },
   text: {
     color: 'black',
     fontWeight: 'bold',
@@ -28,6 +23,14 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: responsiveFontSize(3),
+  },
+  promoCode: {
+    color: '#000000',
+    fontWeight: 'bold',
+    padding: 10,
+    backgroundColor: '#FFFFFF',
+    textAlign: 'center',
+    fontSize: 20,
   },
 });
 
