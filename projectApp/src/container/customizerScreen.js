@@ -42,19 +42,19 @@ const componentDetailsArray = {
   boitier: [
     {
       id: 1,
-      title: 'titre 1',
+      title: 'Or blanc relief',
       type: 'boitier',
       image: require('../../assets/watches/boitier_A.png'),
     },
     {
       id: 2,
-      title: 'titre 2',
+      title: 'Or blanc',
       type: 'boitier',
       image: require('../../assets/watches/boitier_B.png'),
     },
     {
       id: 3,
-      title: 'titre 3',
+      title: 'Or rose',
       type: 'boitier',
       image: require('../../assets/watches/boitier_C.png'),
     },
@@ -62,25 +62,25 @@ const componentDetailsArray = {
   cadran: [
     {
       id: 1,
-      title: 'titre A',
+      title: 'Rose',
       type: 'cadran',
       image: require('../../assets/watches/cadre_0.png'),
     },
     {
       id: 2,
-      title: 'titre B',
+      title: 'Noir',
       type: 'cadran',
       image: require('../../assets/watches/cadre_1.png'),
     },
     {
       id: 3,
-      title: 'titre C',
+      title: 'Chocolat',
       type: 'cadran',
       image: require('../../assets/watches/cadre_2.png'),
     },
     {
       id: 4,
-      title: 'titre D',
+      title: 'Bordeaux',
       type: 'cadran',
       image: require('../../assets/watches/cadre_3.png'),
     },
@@ -88,16 +88,22 @@ const componentDetailsArray = {
   bracelet: [
     {
       id: 1,
-      title: 'titre alpha',
+      title: 'Cuir large',
       type: 'bracelet',
       image: require('../../assets/watches/bracelet_cuir.png'),
     },
     {
       id: 2,
-      title: ' titre omega',
+      title: 'Cuir rouge fin',
       type: 'bracelet',
       image: require('../../assets/watches/bracelet_cuir_fin_rouge.png'),
     },
+    {
+      id: 3,
+      title: 'Silicone large',
+      type: 'bracelet',
+      image: require('../../assets/watches/bracelet_silicone_large.png'),
+    }
   ],
 };
 
