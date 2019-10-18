@@ -52,7 +52,9 @@ class CommunityBlock extends React.Component {
 
   render() {
     return (
-      <View style={{marginVertical: responsiveHeight(3)}}>
+      <View style={{marginVertical: responsiveHeight(3),
+        alignItems: 'center',
+        elevation: 10,}}>
         <TouchableOpacity
           onPress={this.props.onPress}
           style={{
@@ -61,7 +63,6 @@ class CommunityBlock extends React.Component {
             backgroundColor: 'white',
             flexDirection: 'row',
             alignItems: 'center',
-            elevation: 10,
             shadowColor: '#AAA',
             shadowOpacity: 1,
             shadowRadius: 10,
@@ -107,6 +108,7 @@ class CommunityBlock extends React.Component {
             flex: 1,
             flexDirection: 'row',
             justifyContent: 'space-between',
+            width : responsiveWidth(80)
           }}>
           <TouchableOpacity style={{margin: 10}}>
             <Image
