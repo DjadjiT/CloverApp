@@ -28,6 +28,7 @@ import CollectionCarousel from '../component/collectionCarousel';
 import CommunityBlock from '../component/communityBlock';
 
 import styles from '../styles/mainScreenStyle';
+import MainScreenBlock from "../component/mainScreenBlock";
 
 type Props = {};
 
@@ -41,7 +42,7 @@ export default class CollectionScreen extends Component<Props> {
   }
 
   renderItem = ({item, index}) => {
-    return <CommunityBlock
+    return <MainScreenBlock
       source={require('../../assets/watches/lux7.jpg')}
       title={'BLUE SAPHIRE LADIES WATCH'}
       text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
