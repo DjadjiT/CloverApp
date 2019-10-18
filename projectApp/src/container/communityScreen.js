@@ -49,6 +49,7 @@ export default class CommunityScreen extends Component<Props> {
             }
             return (
               <CommunityBlock
+                key={index}
                 style={styles.scrollViewStyle}
                 onPress={() =>
                   Actions.push('CommunityDetailsScreen', {

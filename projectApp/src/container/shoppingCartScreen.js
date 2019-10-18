@@ -60,9 +60,10 @@ export default class ShoppingCartScreen extends Component<Props> {
 
     return (
       <View style={commonStyles.mainView}>
-        {cartList.map(index => {
+        {cartList.map((item, index) => {
           return (
             <View
+              key={index}
               style={[
                 styles.view,
                 {flexDirection: 'row', justifyContent: 'space-around'},
