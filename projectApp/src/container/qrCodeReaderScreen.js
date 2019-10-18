@@ -115,8 +115,8 @@ export default class QrCodeReaderScreen extends Component<Props> {
   }
 
   returnHomePage() {
-    this.setState({visible: false});
-    Actions.popTo('MainScreen');
+
+    Actions.replace('MainScreen');
   }
 
   compareLink() {
