@@ -35,7 +35,6 @@ type Props = {};
 const componentsArray = [
   {title: 'boitier', image: require('../../assets/watch_case.png')},
   {title: 'cadran', image: require('../../assets/watch_clock_dial.png')},
-  {title: 'aiguilles', image: require('../../assets/watch_hand.png')},
   {title: 'bracelet', image: require('../../assets/watchband.png')},
 ];
 
