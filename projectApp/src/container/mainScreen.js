@@ -63,6 +63,14 @@ export default class HomeScreen extends Component<Props> {
         source={array[index].source}
         title={array[index].title}
         text={array[index].text}
+        onPress={() =>
+          Actions.push('CommunityDetailsScreen', {
+            item_details: index,
+            title: item.title,
+            description: item.text,
+            source: item.source,
+          })
+        }
       />
     );
   };
