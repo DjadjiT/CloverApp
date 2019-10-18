@@ -47,7 +47,7 @@ class CommunityBlock extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {favorite : this.props.favorite};
   }
 
   render() {
@@ -63,7 +63,7 @@ class CommunityBlock extends React.Component {
                     alignItems: 'center',
                 }}>
                 <Image
-                    source={require('../../assets/watches/lux7.jpg')}
+                    source={this.props.source}
                     resizeMode="contain"
                     style={{flex: 1, height: responsiveHeight(30)}}
                 />
@@ -125,7 +125,10 @@ class CommunityBlock extends React.Component {
   }
     displayFavorite(){
         if(this.props.favorite){
-            return (<TouchableOpacity style = {{margin: 10}}>
+            return (<TouchableOpacity style = {{margin: 10}} onPress = {() => {
+                this.setState({favorite: !this.state.favorite});
+            }
+            }>
                 <Image
                     source={require("../../assets/favorite-24px.png")}
                     resizeMode="contain"
@@ -133,7 +136,12 @@ class CommunityBlock extends React.Component {
             </TouchableOpacity>);
         }
         else {
-            return (<TouchableOpacity style = {{margin: 10}}>
+            return (<TouchableOpacity style = {{margin: 10}}
+                                      onPress ={() => {
+                                          this.setState({favorite: !this.state.favorite});
+                                      }
+                                      }
+            >
                 <Image
                     source={require("../../assets/baseline_favorite_border_black_18dp.png")}
                     resizeMode="contain"

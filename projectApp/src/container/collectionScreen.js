@@ -27,8 +27,7 @@ import {
 import CollectionCarousel from '../component/collectionCarousel';
 import CommunityBlock from '../component/communityBlock';
 
-import styles from '../styles/collectionScreenStyle';
-import commonStyles from '../sharedStyles/commonStyle';
+import styles from '../styles/mainScreenStyle';
 
 type Props = {};
 
@@ -240,18 +239,14 @@ export default class CollectionScreen extends Component<Props> {
   }
 
   renderItem = ({item, index}) => {
-    return (
-      <CommunityBlock
-        source={require('../../assets/watches/lux7.jpg')}
-        title={'BLUE SAPHIRE LADIES WATCH'}
-        text={
-          'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
-          'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
-          'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
-          'glam.'
-        }
-      />
-    );
+    return <CommunityBlock
+      source={require('../../assets/watches/lux7.jpg')}
+      title={'BLUE SAPHIRE LADIES WATCH'}
+      text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
+      'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
+      'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
+      'glam.'}
+    />;
   };
 
   render() {
