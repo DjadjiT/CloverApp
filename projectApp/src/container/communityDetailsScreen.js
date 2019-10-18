@@ -87,7 +87,7 @@ export default class CommunityDetailsScreen extends Component<Props> {
 
           <View>
             <TextField
-              label="Lache ton com'"
+              label="Ajouter un commentaire"
               value={commentary}
               clearButtonMode="always"
               onChangeText={commentary => this.setState({commentary})}
