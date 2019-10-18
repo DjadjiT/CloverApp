@@ -60,10 +60,15 @@ const styles = StyleSheet.create({
     marginTop: responsiveHeight(3),
     paddingVertical: responsiveHeight(1),
   },
-  commentaryText: {
+  commentaryAuthor: {
     marginLeft: responsiveWidth(5),
     fontSize: responsiveFontSize(2.3),
     fontWeight: '500',
+  },
+  commentaryDescription: {
+    marginLeft: responsiveWidth(5),
+    fontSize: responsiveFontSize(2.3),
+    fontWeight: '300',
   },
   addToCartTouchable: {
     position: 'absolute',

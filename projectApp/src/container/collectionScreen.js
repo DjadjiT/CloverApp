@@ -30,7 +30,6 @@ import CommunityBlock from '../component/communityBlock';
 import styles from '../styles/mainScreenStyle';
 import commonStyles from '../sharedStyles/commonStyle';
 
-
 type Props = {};
 
 const array = [
@@ -45,19 +44,20 @@ const array = [
         commentaryList: [
           {
             author: 'Marc',
-            comm: "Très belle montre, j'adore",
+            commentary: "Très belle montre, j'adore",
           },
           {
             author: 'Lukas',
-            comm: 'Très jolie couleur',
+            commentary: 'Très jolie couleur',
           },
           {
             author: 'Jonathan',
-            comm: 'Parfaite pour offrir à sa moitié',
+            commentary: 'Parfaite pour offrir à sa moitié',
           },
           {
             author: 'Manon',
-            comm: 'Très agréable à porter, jolie finition, je la recommande !',
+            commentary:
+              'Très agréable à porter, jolie finition, je la recommande !',
           },
         ],
       },
@@ -69,23 +69,24 @@ const array = [
         commentaryList: [
           {
             author: 'Djadji',
-            comm: 'Montre de qualité',
+            commentary: 'Montre de qualité',
           },
           {
             author: 'John',
-            comm:
+            commentary:
               'Belle montre, les matériaux sont de qualité et la finition est parfaite.',
           },
         ],
       },
       {
-        title: "DESIGNER BLACK CHROME WATCH",
-        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        title: 'DESIGNER BLACK CHROME WATCH',
+        desc:
+          'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.',
         image: require('../../assets/watches/lux5.jpg'),
         commentaryList: [
           {
             author: 'Mégane',
-            comm: 'Les détails sont vraiment travaillés',
+            commentary: 'Les détails sont vraiment travaillés',
           },
         ],
       },
@@ -95,32 +96,35 @@ const array = [
     name: 'Elégance',
     watchList: [
       {
-        title: "BLACK RED SHADOW LINX",
-        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        title: 'BLACK RED SHADOW LINX',
+        desc:
+          'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.',
         image: require('../../assets/watches/lux8.jpg'),
         commentaryList: [
           {
-            author:"Djadji",
-            comm:"Montre de qualité"
+            author: 'Djadji',
+            commentary: 'Montre de qualité',
           },
           {
-            author:"John",
-            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
-          }
-        ]
+            author: 'John',
+            commentary:
+              'Belle montre, les matériaux sont de qualité et la finition est parfaite.',
+          },
+        ],
       },
       {
-        title: "BLACK NIGHT GENTLEMEN WATCH",
-        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        title: 'BLACK NIGHT GENTLEMEN WATCH',
+        desc:
+          'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.',
         image: require('../../assets/watches/lux6.jpg'),
         commentaryList: [
           {
             author: 'Djadji',
-            comm: 'Montre de qualité',
+            commentary: 'Montre de qualité',
           },
           {
             author: 'John',
-            comm:
+            commentary:
               'Belle montre, les matériaux sont de qualité et la finition est parfaite.',
           },
         ],
@@ -133,105 +137,114 @@ const array = [
         commentaryList: [
           {
             author: 'Marc',
-            comm: "Très belle montre, j'adore",
+            commentary: "Très belle montre, j'adore",
           },
           {
             author: 'Lukas',
-            comm: 'Très jolie couleur',
+            commentary: 'Très jolie couleur',
           },
           {
             author: 'Jonathan',
-            comm: 'Parfaite pour offrir à sa moitié',
+            commentary: 'Parfaite pour offrir à sa moitié',
           },
           {
             author: 'Manon',
-            comm: 'Très agréable à porter, jolie finition, je la recommande !',
+            commentary:
+              'Très agréable à porter, jolie finition, je la recommande !',
           },
         ],
       },
       {
-        title: "DESIGNER BLACK CHROME WATCH",
-        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        title: 'DESIGNER BLACK CHROME WATCH',
+        desc:
+          'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.',
         image: require('../../assets/watches/lux5.jpg'),
         commentaryList: [
           {
-            author:"Mégane",
-            comm:"Les détails sont vraiment travaillés"
-          }
-        ]
-      }
-    ]
+            author: 'Mégane',
+            commentary: 'Les détails sont vraiment travaillés',
+          },
+        ],
+      },
+    ],
   },
   {
-    name: "La collection Team 7",
+    name: 'La collection Team 7',
     watchList: [
       {
-        title: "DESIGNER BLACK CHROME WATCH",
-        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        title: 'DESIGNER BLACK CHROME WATCH',
+        desc:
+          'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.',
         image: require('../../assets/watches/lux5.jpg'),
         commentaryList: [
           {
-            author:"Mégane",
-            comm:"Les détails sont vraiment travaillés"
-          }
-        ]
+            author: 'Mégane',
+            commentary: 'Les détails sont vraiment travaillés',
+          },
+        ],
       },
       {
-        title: "BLACK RED SHADOW LINX",
-        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        title: 'BLACK RED SHADOW LINX',
+        desc:
+          'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.',
         image: require('../../assets/watches/lux8.jpg'),
         commentaryList: [
           {
-            author:"Djadji",
-            comm:"Montre de qualité"
+            author: 'Djadji',
+            commentary: 'Montre de qualité',
           },
           {
-            author:"John",
-            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
-          }
-        ]
+            author: 'John',
+            commentary:
+              'Belle montre, les matériaux sont de qualité et la finition est parfaite.',
+          },
+        ],
       },
       {
-        title: "BLACK NIGHT GENTLEMEN WATCH",
-        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        title: 'BLACK NIGHT GENTLEMEN WATCH',
+        desc:
+          'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.',
         image: require('../../assets/watches/lux6.jpg'),
         commentaryList: [
           {
-            author:"Djadji",
-            comm:"Montre de qualité"
+            author: 'Djadji',
+            commentary: 'Montre de qualité',
           },
           {
-            author:"John",
-            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
-          }
-        ]
+            author: 'John',
+            commentary:
+              'Belle montre, les matériaux sont de qualité et la finition est parfaite.',
+          },
+        ],
       },
       {
-        title: "BLUE SAPHIRE LADIES WATCH",
-        desc: "Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\nTake your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark glam.",
+        title: 'BLUE SAPHIRE LADIES WATCH',
+        desc:
+          'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\nTake your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark glam.',
         image: require('../../assets/watches/lux7.jpg'),
         commentaryList: [
           {
-            author:"Marc",
-            comm:"Très belle montre, j'adore"
+            author: 'Marc',
+            commentary: "Très belle montre, j'adore",
           },
           {
-            author:"Lukas",
-            comm:"Très jolie couleur"
+            author: 'Lukas',
+            commentary: 'Très jolie couleur',
           },
           {
-            author:"Jonathan",
-            comm:"Parfaite pour offrir à sa moitié"
+            author: 'Jonathan',
+            commentary: 'Parfaite pour offrir à sa moitié',
           },
           {
-            author:"Manon",
-            comm:"Très agréable à porter, jolie finition, je la recommande !"
-          }
-        ]
-      }
-    ]
-  }
-]
+            author: 'Manon',
+            commentary:
+              'Très agréable à porter, jolie finition, je la recommande !',
+          },
+        ],
+      },
+    ],
+  },
+];
 
 export default class CollectionScreen extends Component<Props> {
   constructor(props) {
@@ -241,14 +254,23 @@ export default class CollectionScreen extends Component<Props> {
   }
 
   renderItem = ({item, index}) => {
-    return <CommunityBlock
-      source={require('../../assets/watches/lux7.jpg')}
-      title={'BLUE SAPHIRE LADIES WATCH'}
-      text={'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
-      'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
-      'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
-      'glam.'}
-    />;
+    console.log(item);
+    return (
+      <CommunityBlock
+        source={item.image}
+        title={item.title}
+        text={item.desc}
+        commentaryList={item.commentaryList}
+        onPress={() => {
+          Actions.push('CommunityDetailsScreen', {
+            title: item.title,
+            description: item.desc,
+            source: item.image,
+            commentaryList: item.commentaryList,
+          });
+        }}
+      />
+    );
   };
 
   render() {

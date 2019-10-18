@@ -53,6 +53,9 @@ export default class CommunityScreen extends Component<Props> {
                 onPress={() =>
                   Actions.push('CommunityDetailsScreen', {
                     item_details: index,
+                    title: item.title,
+                    description: item.text,
+                    source: item.source,
                   })
                 }
                 source={item.source}
