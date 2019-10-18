@@ -75,7 +75,7 @@ const array = [
         ]
       },
       {
-        title: "CHOCOLATE GENTLEMEN WATCH",
+        title: "DESIGNER BLACK CHROME WATCH",
         desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
         image: require('../../assets/watches/lux5.jpg'),
         commentaryList: [
@@ -90,6 +90,21 @@ const array = [
   {
     name: "Elégance",
     watchList: [
+      {
+        title: "BLACK RED SHADOW LINX",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux8.jpg'),
+        commentaryList: [
+          {
+            author:"Djadji",
+            comm:"Montre de qualité"
+          },
+          {
+            author:"John",
+            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
+          }
+        ]
+      },
       {
         title: "BLACK NIGHT GENTLEMEN WATCH",
         desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
@@ -129,13 +144,82 @@ const array = [
         ]
       },
       {
-        title: "CHOCOLATE GENTLEMEN WATCH",
+        title: "DESIGNER BLACK CHROME WATCH",
         desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
         image: require('../../assets/watches/lux5.jpg'),
         commentaryList: [
           {
             author:"Mégane",
             comm:"Les détails sont vraiment travaillés"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    name: "La collection Team 7",
+    watchList: [
+      {
+        title: "DESIGNER BLACK CHROME WATCH",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux5.jpg'),
+        commentaryList: [
+          {
+            author:"Mégane",
+            comm:"Les détails sont vraiment travaillés"
+          }
+        ]
+      },
+      {
+        title: "BLACK RED SHADOW LINX",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux8.jpg'),
+        commentaryList: [
+          {
+            author:"Djadji",
+            comm:"Montre de qualité"
+          },
+          {
+            author:"John",
+            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
+          }
+        ]
+      },
+      {
+        title: "BLACK NIGHT GENTLEMEN WATCH",
+        desc: "Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.",
+        image: require('../../assets/watches/lux6.jpg'),
+        commentaryList: [
+          {
+            author:"Djadji",
+            comm:"Montre de qualité"
+          },
+          {
+            author:"John",
+            comm:"Belle montre, les matériaux sont de qualité et la finition est parfaite."
+          }
+        ]
+      },
+      {
+        title: "BLUE SAPHIRE LADIES WATCH",
+        desc: "Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\nTake your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark glam.",
+        image: require('../../assets/watches/lux7.jpg'),
+        commentaryList: [
+          {
+            author:"Marc",
+            comm:"Très belle montre, j'adore"
+          },
+          {
+            author:"Lukas",
+            comm:"Très jolie couleur"
+          },
+          {
+            author:"Jonathan",
+            comm:"Parfaite pour offrir à sa moitié"
+          },
+          {
+            author:"Manon",
+            comm:"Très agréable à porter, jolie finition, je la recommande !"
           }
         ]
       }
