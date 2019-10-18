@@ -71,7 +71,7 @@ class MainScreenBlock extends React.Component {
                     alignItems: 'center',
                 }}>
                 <Image
-                    source={require('../../assets/watches/lux7.jpg')}
+                    source={this.props.source}
                     resizeMode="contain"
                     style={{flex: 1, height: responsiveHeight(30)}}
                 />

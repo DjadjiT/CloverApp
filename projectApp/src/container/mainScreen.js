@@ -32,7 +32,23 @@ import commonStyles from '../sharedStyles/commonStyle';
 
 type Props = {};
 
-let array = [{name: 'object 1'}, {name: 'object 2'}, {name: 'object 3'}];
+let array = [
+  {
+    source: require('../../assets/watches/lux6.jpg'),
+    title: 'BLACK NIGHT GENTLEMEN WATCH',
+    text: 'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.'
+  },
+  {
+    source: require('../../assets/watches/lux8.jpg'),
+    title: 'BLACK RED SHADOW LINX',
+    text: 'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.'
+  },
+  {
+    source: require('../../assets/watches/lux5.jpg'),
+    title: 'DESIGNER BLACK CHROME WATCH',
+    text: 'Lorem ipsum dolor sit amet, ad semper deseruisse vim, eos equidem consequat definitiones cu, vel at etiam velit efficiantur. Est ex quando causae efficiendi, ad volutpat periculis definiebas est.'
+  }
+];
 
 export default class HomeScreen extends Component<Props> {
   constructor(props) {
@@ -44,14 +60,9 @@ export default class HomeScreen extends Component<Props> {
   renderItem = ({item, index}) => {
     return (
       <MainScreenBlock
-        source={require('../../assets/watches/lux7.jpg')}
-        title={'BLUE SAPHIRE LADIES WATCH'}
-        text={
-          'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
-          'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
-          'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
-          'glam.'
-        }
+        source={array[index].source}
+        title={array[index].title}
+        text={array[index].text}
       />
     );
   };
