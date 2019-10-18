@@ -48,22 +48,14 @@ const styles = StyleSheet.create({
     fontSize: responsiveFontSize(2.5),
     fontWeight: 'bold',
   },
-  promoCode: {
-    color: '#000000',
-    fontWeight: 'bold',
-    padding: 10,
-    backgroundColor: '#FFFFFF',
-    textAlign: 'center',
-    fontSize: 20,
+  eventContainer: {
+    marginTop: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-  scrollViewStyle : {
-    marginTop: responsiveHeight(5),
-    flex : 1,
-    alignItems:'center'
-  },
-  communityCardStyle: {
-    padding: 10,
-  },
+  eventImage: {height: responsiveHeight(15), width: responsiveWidth(100)},
+  eventTextContainer: {position: 'absolute', alignItems: 'center'},
+  eventText: {color: 'white', fontSize: responsiveFontSize(3)},
 });
 
 module.exports = styles;
