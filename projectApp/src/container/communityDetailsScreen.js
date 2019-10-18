@@ -15,7 +15,10 @@ import {
   TouchableOpacity,
   Dimensions,
   ScrollView,
+  TextInput,
 } from 'react-native';
+
+import {TextField} from 'react-native-material-textfield';
 
 import {Actions} from 'react-native-router-flux';
 import {
@@ -24,7 +27,8 @@ import {
   responsiveFontSize,
 } from 'react-native-responsive-dimensions';
 
-import styles from '../styles/mainScreenStyle';
+import styles from '../styles/communityDetailsScreenStyle';
+import commonStyles from '../sharedStyles/commonStyle';
 
 type Props = {};
 
@@ -91,14 +95,66 @@ const componentDetailsArray = {
   ],
 };
 
+let falseCommentaryList = [
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+  {
+    author: 'author1',
+    commentary: 'Meilleure montre du monde, elle a changé ma vie à jamais',
+  },
+];
+
 export default class CommunityDetailsScreen extends Component<Props> {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      commentary: '',
+      commentaryList: falseCommentaryList,
+    };
+  }
+
+  sendCommentary() {
+    let {commentary, commentaryList} = this.state;
+    if (commentary) {
+      commentaryList.unshift({author: 'John Doe', commentary: commentary});
+      this.setState({commentary: '', commentaryList: commentaryList});
+    }
   }
 
   render() {
+    let {commentary, commentaryList} = this.state;
+
     const watch = {
       title: 'Incroyable montre de luxe super stylée par la team 7',
       description:
@@ -107,56 +163,58 @@ export default class CommunityDetailsScreen extends Component<Props> {
     };
 
     return (
-      <View style={styles.mainView}>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          <View
-            style={{
-              alignSelf: 'center',
-              //height: responsiveHeight(50),
-              width: responsiveWidth(90),
-              marginVertical: responsiveHeight(3),
-              backgroundColor: 'white',
-              shadowColor: '#000',
-              shadowOffset: {
-                width: 0,
-                height: 10,
-              },
-              shadowOpacity: 0.53,
-              shadowRadius: 8,
-              elevation: 10,
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}>
+      <View style={commonStyles.mainView}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={styles.scrollView}>
+          <View style={styles.watchDetails}>
             <Image
               source={require('../../assets/watches/lux7.jpg')}
               resizeMode="contain"
-              style={{flex: 1, height: responsiveHeight(40)}}
+              style={styles.watchImage}
             />
             <View style={{flex: 1.5}}>
-              <View style={{flex: 2, justifyContent: 'flex-end'}}>
-                <Text
-                  style={{
-                    fontWeight: 'bold',
-                    fontSize: responsiveFontSize(3),
-                    marginVertical: responsiveHeight(5),
-                    width: responsiveWidth(80),
-                  }}>
-                  {watch.title}
-                </Text>
+              <View style={styles.watchDescription}>
+                <Text style={styles.title}>{watch.title}</Text>
                 <Text
                   numberOfLines={4}
                   ellipsizeMode="tail"
-                  style={{
-                    width: responsiveWidth(80),
-                    marginHorizontal: responsiveWidth(2),
-                    marginBottom: responsiveHeight(5),
-                  }}>
+                  style={styles.description}>
                   {watch.description}
                 </Text>
               </View>
             </View>
           </View>
+
+          <View>
+            <TextField
+              label="Lache ton com'"
+              value={commentary}
+              clearButtonMode="always"
+              onChangeText={commentary => this.setState({commentary})}
+              containerStyle={styles.textField}
+              multiline
+            />
+
+            <TouchableOpacity
+              style={styles.sendTouchable}
+              onPress={() => {
+                this.sendCommentary();
+              }}>
+              <Text style={styles.sendText}>{'Envoyer'}</Text>
+            </TouchableOpacity>
+
+            {commentaryList.map((item, index) => (
+              <View key={index} style={styles.commentaryListContainer}>
+                <Text style={styles.commentaryText}>{item.author}</Text>
+                <Text style={styles.commentaryText}>{item.commentary}</Text>
+              </View>
+            ))}
+          </View>
         </ScrollView>
+        <TouchableOpacity style={styles.addToCartTouchable}>
+          <Text style={styles.addToCartText}>Ajouter au panier</Text>
+        </TouchableOpacity>
       </View>
     );
   }

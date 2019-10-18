@@ -27,7 +27,8 @@ import {
 
 import * as ApiCall from '../actions/apiCall';
 
-import styles from '../styles/mainScreenStyle';
+import styles from '../styles/customizerScreenStyle';
+import commonStyles from '../sharedStyles/commonStyle';
 
 type Props = {};
 
@@ -142,16 +143,14 @@ export default class CustomizerScreen extends Component<Props> {
                 <TouchableOpacity
                   key={index}
                   activeOpacity={0.7}
-                  style={{
-                    flex: 1,
-                    backgroundColor: 'white',
-                    borderWidth: 1,
-                    borderColor: 'lightgrey',
-                    flexDirection: 'column',
-                    paddingHorizontal: responsiveWidth(
-                      componentsArray.length >= 5 ? 5 : 12,
-                    ),
-                  }}
+                  style={[
+                    {
+                      paddingHorizontal: responsiveWidth(
+                        componentsArray.length >= 5 ? 5 : 12,
+                      ),
+                    },
+                    styles.bottomSecondActionsTouchable,
+                  ]}
                   onPress={() => {
                     let watchList = this.state.watchList;
                     watchList[currentItem.title].source = item.image;
@@ -179,21 +178,10 @@ export default class CustomizerScreen extends Component<Props> {
     let {currentComponent, itemListView, watchList} = this.state;
 
     return (
-      <View style={styles.mainView}>
-        <View
-          key="actions"
-          style={{
-            position: 'absolute',
-            top: 150,
-            right: 0,
-            flexDirection: 'column',
-            zIndex: 1,
-          }}>
+      <View style={commonStyles.mainView}>
+        <View key="actions" style={styles.sideActionsContainer}>
           <TouchableOpacity
-            style={{
-              borderColor: 'lightgrey',
-              borderWidth: 1,
-            }}
+            style={styles.sideActionsTouchable}
             onPress={() => {
               ApiCall.share(watchList)
                 .then(() => {
@@ -207,16 +195,11 @@ export default class CustomizerScreen extends Component<Props> {
             <Image
               source={require('../../assets/share.png')}
               resizeMode="contain"
-              style={{
-                height: 40,
-                width: 40,
-                alignSelf: 'center',
-                margin: responsiveWidth(2),
-              }}
+              style={styles.sideActionsImage}
             />
           </TouchableOpacity>
           <TouchableOpacity
-            style={{borderColor: 'lightgrey', borderWidth: 1}}
+            style={styles.sideActionsTouchable}
             onPress={() => {
               ApiCall.share(watchList)
                 .then(() => {
@@ -230,12 +213,7 @@ export default class CustomizerScreen extends Component<Props> {
             <Image
               source={require('../../assets/add_to_cart.png')}
               resizeMode="contain"
-              style={{
-                height: 40,
-                width: 40,
-                alignSelf: 'center',
-                margin: responsiveWidth(2),
-              }}
+              style={styles.sideActionsImage}
             />
           </TouchableOpacity>
         </View>
@@ -243,71 +221,40 @@ export default class CustomizerScreen extends Component<Props> {
           <Image
             source={watchList.bracelet.source}
             resizeMode="contain"
-            style={{
-              height: 650,
-              width: 650,
-              alignSelf: 'center',
-              position: 'absolute',
-              top: 15,
-            }}
+            style={styles.braceletImage}
           />
           <Image
             source={watchList.cadran.source}
             resizeMode="contain"
-            style={{
-              height: 100,
-              width: 100,
-              alignSelf: 'center',
-              position: 'absolute',
-              top: 250,
-            }}
+            style={styles.cadranImage}
           />
           <Image
             source={watchList.boitier.source}
             resizeMode="contain"
-            style={{
-              height: 150,
-              width: 150,
-              alignSelf: 'center',
-              position: 'absolute',
-              top: 230,
-            }}
+            style={styles.boitierImage}
           />
         </View>
-        <View
-          style={{
-            flexDirection: 'column',
-            position: 'absolute',
-            width: '100%',
-            bottom: 0,
-            alignSelf: 'stretch',
-          }}>
+        <View style={styles.bottomContainer}>
           {itemListView}
-          <View
-            style={{
-              flexDirection: 'row',
-              flex: 1,
-              justifyContent: 'center',
-            }}>
+          <View style={styles.bottomFirstActionsContainer}>
             {componentsArray.map((item, index) => {
               return (
                 <TouchableOpacity
                   key={item.title}
-                  style={{
-                    flex: 1,
-                    borderWidth: 1,
-                    borderColor: 'lightgrey',
-                    flexDirection: 'column',
-                    backgroundColor:
-                      item === currentComponent ? 'white' : '#F6F6F6',
-                  }}
+                  style={[
+                    {
+                      backgroundColor:
+                        item === currentComponent ? 'white' : '#F6F6F6',
+                    },
+                    styles.bottomFirstActionsTouchable,
+                  ]}
                   onPress={() => this.addList(item)}>
                   <Image
                     source={item.image}
                     resizeMode="contain"
-                    style={{height: 30, width: 30, alignSelf: 'center'}}
+                    style={styles.bottomFirstActionsImage}
                   />
-                  <Text style={{flex: 1, alignSelf: 'center'}}>
+                  <Text style={styles.bottomFirstActionsText}>
                     {item.title}
                   </Text>
                 </TouchableOpacity>
