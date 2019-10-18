@@ -28,6 +28,8 @@ import CollectionCarousel from '../component/collectionCarousel';
 import CommunityBlock from '../component/communityBlock';
 
 import styles from '../styles/mainScreenStyle';
+import commonStyles from '../sharedStyles/commonStyle';
+
 
 type Props = {};
 
