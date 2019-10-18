@@ -182,14 +182,18 @@ export default class CustomizerScreen extends Component<Props> {
           <TouchableOpacity
             style={styles.sideActionsTouchable}
             onPress={() => {
-              ApiCall.share(watchList)
-                .then(() => {
-                  Actions.replace('MainScreen');
-                })
-                .catch(error => {
-                  console.log(error);
-                  Actions.replace('MainScreen');
-                });
+              let communityList = this.global.communityList;
+              communityList.unshift({
+                source: '../../assets/watches/lux7.jpg',
+                title: 'BLUE SAPHIRE LADIES WATCH',
+                text:
+                  'Smooth stretch fabric, contrast binding, round neckline, cap sleeves, ruched side detail.\n' +
+                  'Take your shoe style to new heights with this alluring peep toe court shoe. Features a slim high heel and ' +
+                  'metallic detailing along the platform. Team with a high waisted pencil skirt and midi top for after dark ' +
+                  'glam.',
+              });
+              this.setGlobal({communityList: communityList});
+              Actions.reset('MainScreen');
             }}>
             <Image
               source={require('../../assets/share.png')}
@@ -200,7 +204,7 @@ export default class CustomizerScreen extends Component<Props> {
           <TouchableOpacity
             style={styles.sideActionsTouchable}
             onPress={() => {
-              ApiCall.share(watchList)
+              ApiCall.addToCart(watchList)
                 .then(() => {
                   Actions.replace('MainScreen');
                 })
