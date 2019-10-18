@@ -12,6 +12,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   ViewPropTypes,
   TouchableOpacity,
 } from 'react-native';
@@ -24,12 +25,12 @@ import {
 } from 'react-native-responsive-dimensions';
 
 import InAppBrowser from 'react-native-inappbrowser-reborn';
+import {ParallaxImage} from "react-native-snap-carousel";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: 'purple',
     borderWidth: 2,
     justifyContent: 'center',
   },
@@ -60,6 +61,10 @@ class DrawerContent extends React.Component {
       <View style={styles.container}>
         {/* <Text>Drawer Content</Text>
         <Button onPress={Actions.closeDrawer}>Back</Button> */}
+        <Image
+          source={require('../../assets/denim-hand-person.jpg')}
+          style={{position: 'absolute', height: responsiveHeight(100), width: responsiveWidth(100)}}
+        />
         <TouchableOpacity
           style={styles.button}
           onPress={() => {
